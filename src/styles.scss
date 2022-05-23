@@ -1,0 +1,20 @@
+:root {
+    --main-font: Lato, "Cosmic Sans", sans-serif;
+    box-sizing: border-box;
+
+}
+
+
+*, ::before, ::after {
+
+    box-sizing: inherit;
+}
+
+
+
+html, body {
+    height: 100vh;
+    font-size: 16px;
+
+}
+

@@ -1,20 +1,20 @@
 :root {
     --main-font: Lato, "Cosmic Sans", sans-serif;
+    --verdigris: #4db6ac;
+    --pansy-purple: #880e4f;
+    --orange-web: #ffa726;
+    --blond: #f5efb2;
     box-sizing: border-box;
-
 }
 
-
-*, ::before, ::after {
-
+*,
+::before,
+::after {
     box-sizing: inherit;
 }
 
-
-
-html, body {
+html,
+body {
     height: 100vh;
     font-size: 16px;
-
 }
-

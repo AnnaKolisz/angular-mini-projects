@@ -1,7 +1,34 @@
+<mat-toolbar>
+  <div (click)="manageMenu()" class="hmbr">
+    <div class="hmbr__icon" [@hamburguerX]="!isHamburguer ? 'hamburguer' : 'topX'"></div>
+    <div class="hmbr__icon hmbr__icon--yellow" [@hamburguerX]="!isHamburguer ? 'hamburguer' : 'hide'"></div>
+    <div class="hmbr__icon" [@hamburguerX]="!isHamburguer ? 'hamburguer' : 'bottomX'"></div>
+  </div>
+  <span class="title">Angular mini project</span>
+</mat-toolbar>
+<mat-sidenav-container class="main">
+  <mat-sidenav #sidenav mode="side" [(opened)]="ifMenuIsOpen" class="side">
+    <nav>
+      <ul class="navigation">
+        <li><a class="navigation__link" routerLink="/" routerLinkActive="active">
+            <mat-icon aria-hidden="false" >home</mat-icon>
+            <span>
+              Start
+            </span>
+          </a></li>
+        <li><a class="navigation__link" routerLink="/filtr" routerLinkActive="active">
+          <mat-icon aria-hidden="false">filter_list</mat-icon>
+          <span>
+            Multi-filtr
+          </span>
+        </a></li>
+      </ul>
+    </nav>
+  </mat-sidenav>
 
-  <mat-toolbar >
-    <span class="tittle">Fun with Angular</span>
-  </mat-toolbar>
-  <main>
-      <router-outlet></router-outlet>
-  </main>
+  <mat-sidenav-content class="content">
+    <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+      <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p> -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -27,7 +27,7 @@ mat-toolbar{
   }
 
   .side{
-      width: 180px;
+      width: 240px;
       border-right: 2px solid var(--teal-300);
   }
 
@@ -49,7 +49,7 @@ mat-toolbar{
     }
     &__link{
         color: var(--teal-600);
-        font-size: 1.5em;
+        font-size: 1.25em;
         text-decoration: none;   
         mat-icon, span{
             vertical-align: middle;

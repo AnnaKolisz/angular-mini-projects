@@ -1,0 +1,15 @@
+.ctn{
+    padding: 1rem;
+    &__card{
+        margin-bottom: 1rem;
+    }
+}
+
+mat-card-title{
+    color: var(--teal-900);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--teal-600);
+}
+mat-card-content{
+    padding: 1rem 2rem; 
+}

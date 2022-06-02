@@ -6,7 +6,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule, MAT_DATE_FORMATS } from "@angular/material/core";
+import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE, NativeDateModule } from "@angular/material/core";
+import * as _moment from 'moment';
+import { MomentDateAdapter, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 export const MY_FORMATS = {
     parse: {
@@ -27,8 +29,10 @@ const modules = [
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatMomentDateModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    NativeDateModule
 ]
 
 @NgModule({
@@ -37,6 +41,12 @@ const modules = [
     exports: [...modules
     ],
     providers: [
+      { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
+      {
+        provide: DateAdapter,
+        useClass: MomentDateAdapter,
+        deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+      },
         { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
     ]
 })

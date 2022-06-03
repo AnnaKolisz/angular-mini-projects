@@ -1,7 +1,7 @@
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, ElementRef, Inject, Input, OnDestroy, OnInit, Optional, Self, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, NgControl, Validators } from '@angular/forms';
+import { ControlValueAccessor, FormBuilder, FormGroup, NgControl, Validators } from '@angular/forms';
 import { MatFormField, MatFormFieldControl, MAT_FORM_FIELD } from '@angular/material/form-field';
 import { Observable, Subject } from 'rxjs';
 
@@ -19,13 +19,17 @@ export class HourMinute {
     '[id]': 'id',
   },
 })
-export class HourPickerComponent implements OnInit, OnDestroy, MatFormFieldControl<HourMinute> {
+export class HourPickerComponent implements OnInit, OnDestroy, MatFormFieldControl<HourMinute>, ControlValueAccessor {
    startArr = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09'];
    hours: string[];
    minutes: string[];
    parts: FormGroup;
    @ViewChild('hour') hourSelect: HTMLElement;
    @ViewChild('minute') minuteSelect: HTMLElement;
+
+   // for implements ControlValueAccessor
+   onChange = (_: any) => { };
+   onTouched = () => { };
 
   //#region for implements MatFormFieldControl<HourMinute>
   
@@ -106,9 +110,10 @@ export class HourPickerComponent implements OnInit, OnDestroy, MatFormFieldContr
       minute: ['', [Validators.required]],
     });
     if (this.ngControl != null) {
-     // this.ngControl.valueAccessor = this;
+      this.ngControl.valueAccessor = this;
     }
   }
+
 
   ngOnInit(): void {
     this.hours = this.createArray([...this.startArr], 23);
@@ -141,6 +146,21 @@ export class HourPickerComponent implements OnInit, OnDestroy, MatFormFieldContr
     } else {
       this._focusMonitor.focusVia(this.minuteSelect, 'program');
     }
+  }
+
+  // Method for implements ControlValueAccessor
+  writeValue(time: HourMinute | null): void {
+    this.value = time;
+  }
+
+  // Method for implements ControlValueAccessor
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  // Method for implements ControlValueAccessor
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
   }
 
 }

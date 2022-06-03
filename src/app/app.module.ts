@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
 import { DateHourPickersComponent } from './date-hour-pickers/date-hour-pickers.component';
+import { HourPickerComponent } from './date-hour-pickers/hour-picker/hour-picker.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,13 +15,16 @@ import { DateHourPickersComponent } from './date-hour-pickers/date-hour-pickers.
   declarations: [
     AppComponent,
     HomeComponent,
-    DateHourPickersComponent
+    DateHourPickersComponent,
+    HourPickerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
    

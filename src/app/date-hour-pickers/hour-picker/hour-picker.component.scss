@@ -1,0 +1,37 @@
+
+
+.hourctn {
+    width: inherit;
+    display: flex;
+    gap: 5%;
+    padding: 0 5px;
+    &__select {
+        width: 55%;
+        opacity: 0;
+        transition: opacity 200ms;
+    }
+    &__input{
+        width: 35%;
+        opacity: 0;
+        transition: opacity 200ms;
+    }
+}
+
+
+.spacer {
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+:host.example-floating .spacer {
+    opacity: 1;
+}
+
+:host.example-floating .hourctn__input {
+    opacity: 1;
+}
+
+
+:host.example-floating .hourctn__select {
+    opacity: 1;
+}

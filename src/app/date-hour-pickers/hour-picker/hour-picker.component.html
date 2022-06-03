@@ -1,0 +1,10 @@
+<div class="hourctn" [formGroup]="parts" role="group">
+    <mat-select #hour class="hourctn__select" formControlName="hour">
+        <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
+    </mat-select>
+
+    <span class="spacer"> :</span>
+    <mat-select #minute class="hourctn__select" formControlName="minute">
+        <mat-option *ngFor="let min of minutes" [value]="min">{{min}}</mat-option>
+    </mat-select>
+</div>

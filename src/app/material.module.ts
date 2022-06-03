@@ -9,6 +9,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE, NativeDateModule } from "@angular/material/core";
 import * as _moment from 'moment';
 import { MomentDateAdapter, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import {MatSelectModule} from '@angular/material/select';
 
 export const MY_FORMATS = {
     parse: {
@@ -32,7 +33,8 @@ const modules = [
     MatMomentDateModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NativeDateModule
+    NativeDateModule,
+    MatSelectModule
 ]
 
 @NgModule({

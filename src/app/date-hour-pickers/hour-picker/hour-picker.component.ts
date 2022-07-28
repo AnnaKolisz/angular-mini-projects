@@ -1,7 +1,7 @@
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, ElementRef, Inject, Input, OnDestroy, OnInit, Optional, Self, ViewChild, ViewEncapsulation } from '@angular/core';
-import { ControlValueAccessor, FormBuilder, FormGroup, NgControl, Validators } from '@angular/forms';
+import { ControlValueAccessor, UntypedFormBuilder, UntypedFormGroup, NgControl, Validators } from '@angular/forms';
 import { MatFormField, MatFormFieldControl, MAT_FORM_FIELD } from '@angular/material/form-field';
 import { Observable, Subject } from 'rxjs';
 
@@ -23,7 +23,7 @@ export class HourPickerComponent implements OnInit, OnDestroy, MatFormFieldContr
    startArr = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09'];
    hours: string[];
    minutes: string[];
-   parts: FormGroup;
+   parts: UntypedFormGroup;
    @ViewChild('hour') hourSelect: HTMLSelectElement;
    @ViewChild('minute') minuteSelect: HTMLElement;
 
@@ -99,7 +99,7 @@ export class HourPickerComponent implements OnInit, OnDestroy, MatFormFieldContr
   //#endregion
 
   constructor(
-    formBuilder: FormBuilder,
+    formBuilder: UntypedFormBuilder,
     private _elementRef: ElementRef<HTMLElement>,
     private _focusMonitor: FocusMonitor,
     @Optional() @Inject(MAT_FORM_FIELD) public _formField: MatFormField,

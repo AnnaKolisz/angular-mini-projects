@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { DateHourPickersComponent } from './date-hour-pickers/date-hour-pickers.component';
 import { HourPickerComponent } from './date-hour-pickers/hour-picker/hour-picker.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MultiFilterComponent } from './multi-filter/multi-filter.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     DateHourPickersComponent,
-    HourPickerComponent
+    HourPickerComponent,
+    MultiFilterComponent
   ],
   imports: [
     BrowserModule,

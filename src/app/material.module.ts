@@ -11,6 +11,8 @@ import * as _moment from 'moment';
 import { MomentDateAdapter, MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {CdkTableModule} from '@angular/cdk/table';
 
 export const MY_FORMATS = {
     parse: {
@@ -36,7 +38,9 @@ const modules = [
     MatNativeDateModule,
     NativeDateModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    CdkTableModule
 ]
 
 @NgModule({

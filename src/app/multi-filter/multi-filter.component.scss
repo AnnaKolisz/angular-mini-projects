@@ -1,0 +1,39 @@
+.ctn{
+    padding: 1rem;
+}
+
+.overflow{
+    height: calc(100vh - 130px);
+    overflow: auto;
+}
+
+.tbl{
+    width: 100%;
+    border-collapse: separate; /* I don't use collapse because I need border */
+    border-spacing: 0;
+    font-size: 14px; 
+    position: relative;
+    thead th{
+        top: 0;
+        background-color: white;
+        position: sticky; 
+        z-index: 10; 
+    }
+    th{
+        padding: 8px 24px 8px 2px;  
+        border-bottom: 2px solid var(--teal-600);
+    }
+    td{
+        border-bottom: 1px solid var(--teal-100);
+        padding: 8px 24px 8px 2px;  
+    }
+    &__row{
+        text-align: left;
+        // padding: 0.5rem 0 1rem 0 ;
+    }  
+    &__row-header{
+        border-bottom: 1px solid var(--eon-darkgrey);
+        text-align: left;
+        height: 50px;
+    }
+}

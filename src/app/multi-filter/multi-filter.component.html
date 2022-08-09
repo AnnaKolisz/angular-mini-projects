@@ -1,0 +1,23 @@
+<main class="ctn">
+    <mat-card>
+        <div class="overflow">
+            <table cdk-table [dataSource]="dataSource" class="tbl">
+                <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
+                    <th cdk-header-cell *cdkHeaderCellDef > {{ item.show}} </th>
+                    <td cdk-cell *cdkCellDef="let row" > {{row[item.key]}} </td>
+                </ng-container>
+                 <!-- <ng-container *ngFor="let key of filteredColums" cdkColumnDef="{{key}}">
+                    <th cdk-header-cell *cdkHeaderCellDef>
+                        <div class="table-planner__flex">
+                            <input formControlName="{{key.substring(5)}}" placeholder="{{key.substring(5)}}">
+                        </div>
+                    </th>
+                </ng-container>  -->
+                <!-- Header and Row Declarations -->
+                <tr cdk-header-row *cdkHeaderRowDef="displayedColumns" class="tbl__row-header"></tr>
+                 <!-- <tr cdk-header-row *cdkHeaderRowDef="filteredColums"> </tr> -->
+                <tr cdk-row *cdkRowDef="let row; columns: displayedColumns" class="tbl__row"></tr>
+            </table>
+        </div>
+    </mat-card>
+</main>

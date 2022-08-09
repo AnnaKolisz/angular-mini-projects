@@ -9,6 +9,7 @@ import { DateHourPickersComponent } from './date-hour-pickers/date-hour-pickers.
 import { HourPickerComponent } from './date-hour-pickers/hour-picker/hour-picker.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MultiFilterComponent } from './multi-filter/multi-filter.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,7 +27,8 @@ import { MultiFilterComponent } from './multi-filter/multi-filter.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
    

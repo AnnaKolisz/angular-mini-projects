@@ -1,8 +1,9 @@
 import { Injectable, NgModule } from '@angular/core';
 import { RouterModule, RouterStateSnapshot, Routes, TitleStrategy } from '@angular/router';
-import { DateHourPickersComponent } from './date-hour-pickers/date-hour-pickers.component';
-import { HomeComponent } from './home/home.component';
-import { MultiFilterComponent } from './multi-filter/multi-filter.component';
+import { DateHourPickersComponent } from './components/date-hour-pickers/date-hour-pickers.component';
+import { HomeComponent } from './components/home/home.component';
+import { MultiFilterComponent } from './components/multi-filter/multi-filter.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

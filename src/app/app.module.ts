@@ -4,12 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { HomeComponent } from './home/home.component';
-import { DateHourPickersComponent } from './date-hour-pickers/date-hour-pickers.component';
-import { HourPickerComponent } from './date-hour-pickers/hour-picker/hour-picker.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MultiFilterComponent } from './multi-filter/multi-filter.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { ReviewFormComponent } from './components/review-form/review-form.component';
+import { MultiFilterComponent } from './components/multi-filter/multi-filter.component';
+import { DateHourPickersComponent } from './components/date-hour-pickers/date-hour-pickers.component';
+import { HourPickerComponent } from './components/date-hour-pickers/hour-picker/hour-picker.component';
 
 
 
@@ -17,9 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HomeComponent,
-    DateHourPickersComponent,
-    HourPickerComponent,
-    MultiFilterComponent
+   DateHourPickersComponent,
+   HourPickerComponent,
+    MultiFilterComponent,
+    ReviewFormComponent
   ],
   imports: [
     BrowserModule,

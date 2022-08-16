@@ -1,0 +1,14 @@
+<div class="ctn">
+    <!-- <p>Stop telling yourself you're not qualified, not worthy or not experienced enough</p>
+    <p>Growth happens when you start doing things you're not qualified to do</p>   -->
+    <ul class="list">
+        <li *ngFor="let project of list, let i = index">
+
+            <h2>{{i+1}}</h2>
+
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <a href="{{project.link}}">Link</a>
+        </li>
+    </ul>
+</div>

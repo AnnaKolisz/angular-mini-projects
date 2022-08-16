@@ -13,12 +13,7 @@
     border-spacing: 0;
     font-size: 14px; 
     position: relative;
-    thead th{
-        top: 0;
-        background-color: white;
-        position: sticky; 
-        z-index: 10; 
-    }
+
     th{
         padding: 8px 24px 8px 2px;  
         border-bottom: 2px solid var(--teal-600);
@@ -35,5 +30,22 @@
         border-bottom: 1px solid var(--eon-darkgrey);
         text-align: left;
         height: 50px;
+        th{
+            top: 0;
+            background-color: white;
+            position: sticky; 
+            z-index: 10; 
+        }
+    }
+    &__row-dark{
+        border-bottom: 1px solid var(--eon-darkgrey);
+        text-align: left;
+        height: 50px;
+        th{
+            top: 50px;
+            background-color: var(--teal-600);
+            position: sticky; 
+            z-index: 10; 
+        }
     }
 }

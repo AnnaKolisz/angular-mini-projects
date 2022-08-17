@@ -11,6 +11,7 @@ import { ReviewFormComponent } from './components/review-form/review-form.compon
 import { MultiFilterComponent } from './components/multi-filter/multi-filter.component';
 import { DateHourPickersComponent } from './components/date-hour-pickers/date-hour-pickers.component';
 import { HourPickerComponent } from './components/date-hour-pickers/hour-picker/hour-picker.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 
@@ -21,7 +22,8 @@ import { HourPickerComponent } from './components/date-hour-pickers/hour-picker/
    DateHourPickersComponent,
    HourPickerComponent,
     MultiFilterComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

@@ -8,28 +8,7 @@
 </mat-toolbar>
 <mat-sidenav-container class="main">
   <mat-sidenav #sidenav mode="side" [(opened)]="ifMenuIsOpen" class="side">
-    <nav>
-      <ul class="navigation">
-        <li><a class="navigation__link" routerLink="/" routerLinkActive="active">
-            <mat-icon aria-hidden="false" >home</mat-icon>
-            <span>
-              Start
-            </span>
-          </a></li>
-        <li><a class="navigation__link" routerLink="/filter" routerLinkActive="active">
-          <mat-icon aria-hidden="false">filter_list</mat-icon>
-          <span>
-            Multi-filtr
-          </span>
-        </a></li>
-        <li><a class="navigation__link" routerLink="/picker" routerLinkActive="active">
-          <mat-icon aria-hidden="false">date_range</mat-icon>
-          <span>
-            Date/Hour Picker
-          </span>
-        </a></li>
-      </ul>
-    </nav>
+    <app-menu></app-menu>
   </mat-sidenav>
 
   <mat-sidenav-content class="content">

@@ -7,17 +7,17 @@ const projects: Project[] = [
     {
       title: "Multi filtr",
       description: "This show filtr per column",
-      link: ''
+      link: 'filter'
     },
     {
       title: "Hour Date Picker",
       description: "My custom form field by custom accessor validator",
-      link: ''
+      link: 'picker'
     },
     {
       title: "Review form",
       description: "Form to evaluate the hypothetical workshop ",
-      link: ''
+      link: 'review'
     },
 
 ]

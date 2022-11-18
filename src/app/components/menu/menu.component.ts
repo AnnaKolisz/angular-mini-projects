@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Project } from 'src/app/model/data';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+   
+  list$: Observable<Project[]>;
 
-  constructor() { }
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
+    this.list$ = this.dataService.getProjects();
   }
 
 }

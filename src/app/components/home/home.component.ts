@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Project } from 'src/app/model/data';
+import { DataService } from 'src/app/service/data.service';
 
 
 
-const projects: Project[] = [
-    {
-      title: "Multi filtr",
-      description: "This show filtr per column",
-      link: 'filter'
-    },
-    {
-      title: "Hour Date Picker",
-      description: "My custom form field by custom accessor validator",
-      link: 'picker'
-    },
-    {
-      title: "Review form",
-      description: "Form to evaluate the hypothetical workshop ",
-      link: 'review'
-    },
+// const projects: Project[] = [
+//     {
+//       title: "Multi filtr",
+//       description: "This show filtr per column",
+//       link: 'filter'
+//     },
+//     {
+//       title: "Hour Date Picker",
+//       description: "My custom form field by custom accessor validator",
+//       link: 'picker'
+//     },
+//     {
+//       title: "Review form",
+//       description: "Form to evaluate the hypothetical workshop ",
+//       link: 'review'
+//     },
 
-]
+// ]
 
 @Component({
   selector: 'app-home',
@@ -29,13 +31,14 @@ const projects: Project[] = [
 })
 export class HomeComponent implements OnInit {
 
-  list: Project[];
-  
+  list$: Observable<Project[]>;
 
-  constructor() { }
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
-    this.list = projects;
+    this.list$ = this.dataService.getProjects();
   }
 
 }

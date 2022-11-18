@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Employee } from "../model/data";
+import { Employee, Project } from "../model/data";
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +13,9 @@ import { Employee } from "../model/data";
  
     getData200(): Observable<Employee[]>{
       return this.http.get<Employee[]>('assets/db/mock-data.json');
+    }
 
+    getProjects(): Observable<Project[]>{
+      return this.http.get<Project[]>('assets/db/projects.json');
     }
   }

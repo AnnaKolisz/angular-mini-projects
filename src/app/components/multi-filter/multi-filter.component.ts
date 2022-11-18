@@ -8,7 +8,7 @@ import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
 
 
 @Component({
-  selector: 'app-multi-filter',
+  selector: 'am-multi-filter',
   templateUrl: './multi-filter.component.html',
   styleUrls: ['./multi-filter.component.scss']
 })

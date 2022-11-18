@@ -10,7 +10,7 @@ export class HourMinute {
 }
 
 @Component({
-  selector: 'app-hour-picker',
+  selector: 'am-hour-picker',
   templateUrl: './hour-picker.component.html',
   styleUrls: ['./hour-picker.component.scss'],
   providers: [{ provide: MatFormFieldControl, useExisting: HourPickerComponent }],

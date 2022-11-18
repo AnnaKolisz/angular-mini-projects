@@ -2,7 +2,7 @@ import { Component, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-review-form-ratings',
+  selector: 'am-review-form-ratings',
   templateUrl: './review-form-ratings.component.html',
   styleUrls: ['./review-form-ratings.component.scss'],
   providers: [

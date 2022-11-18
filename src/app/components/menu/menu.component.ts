@@ -4,7 +4,7 @@ import { Project } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'am-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })

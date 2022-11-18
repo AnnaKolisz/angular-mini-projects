@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
-  selector: 'app-review-form',
+  selector: 'am-review-form',
   templateUrl: './review-form.component.html',
   styleUrls: ['./review-form.component.scss']
 })

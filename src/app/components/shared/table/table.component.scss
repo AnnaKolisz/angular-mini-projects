@@ -1,0 +1,6 @@
+@import 'mixins';
+
+.table{
+    @include table();
+    padding: 0 .75rem;
+  }

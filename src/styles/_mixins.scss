@@ -1,0 +1,31 @@
+@mixin table{
+    width: 100%;
+    border-collapse: separate; /* I don't use collapse because I need border */
+    border-spacing: 0;
+    font-size: 16px; 
+    font-family: var(--main-font);
+    position: relative;
+    thead th{
+        top: 0;
+        background-color: white;
+        position: sticky; 
+        z-index: 10; 
+    }
+    th{
+        padding: 9px 24px 9px 0px;  
+        border-bottom: 2px solid var(--teal-900);
+    }
+    td{
+        border-bottom: 1px solid var(--teal-100);
+        padding: 9px 24px 9px 0px; 
+    }
+    &__row{
+        text-align: left;
+      
+    }  
+    &__row-header{
+        border-bottom: 1px solid var(--teal-900);
+        text-align: left;
+        height: 50px;
+    }
+}

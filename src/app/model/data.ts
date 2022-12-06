@@ -19,3 +19,10 @@ export interface Project {
     link: string;
     icon: string;
 }
+
+export interface ConfigTable{
+    key: string;
+    type?: string;
+    link?: string;
+    linkName?: string;
+}

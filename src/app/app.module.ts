@@ -13,6 +13,8 @@ import { DateHourPickersComponent } from './components/date-hour-pickers/date-ho
 import { HourPickerComponent } from './components/date-hour-pickers/hour-picker/hour-picker.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ReviewFormRatingsComponent } from './components/review-form/review-form-ratings/review-form-ratings.component';
+import { ResizeComponent } from './components/resize/resize.component';
+import { TableComponent } from './components/shared/table/table.component';
 
 
 
@@ -26,7 +28,9 @@ import { ReviewFormRatingsComponent } from './components/review-form/review-form
     MultiFilterComponent,
     ReviewFormComponent,
     MenuComponent,
-    ReviewFormRatingsComponent
+    ReviewFormRatingsComponent,
+    ResizeComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

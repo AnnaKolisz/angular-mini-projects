@@ -3,6 +3,7 @@ import { RouterModule, RouterStateSnapshot, Routes, TitleStrategy } from '@angul
 import { DateHourPickersComponent } from './components/date-hour-pickers/date-hour-pickers.component';
 import { HomeComponent } from './components/home/home.component';
 import { MultiFilterComponent } from './components/multi-filter/multi-filter.component';
+import { ResizeComponent } from './components/resize/resize.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 
 
@@ -18,10 +19,16 @@ const routes: Routes = [
     component: MultiFilterComponent,
     title: 'Multi-filter'
   },
-   {
+   
+  {
     path: 'review',
     component: ReviewFormComponent,
     title: 'Review'
+  },
+  {
+    path: 'resize',
+    component: ResizeComponent,
+    title: 'Resize view'
   },
 ];
 

@@ -16,6 +16,12 @@
       "description": "Form to evaluate the hypothetical workshop ",
       "link": "review",
       "icon": "thumbs_up_down"
+    },
+    {
+      "title": "Resize view",
+      "description": "TODO ",
+      "link": "resize",
+      "icon": "expand"
     }
 
 ]

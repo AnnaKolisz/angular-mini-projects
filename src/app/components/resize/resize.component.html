@@ -1,0 +1,23 @@
+<main class="ctn" #ctn>
+    <div class="up" #up>
+       
+        <mat-card class="up">
+            <am-table [data]="data" [config]="configUp" [headers]="headersUp"></am-table>
+
+        </mat-card>
+
+    </div>
+    <div class="resizer" #dragMe>
+        <!-- 
+    <div class="sign">
+        <mat-icon aria-hidden="false">expand</mat-icon>
+    </div> -->
+    </div>
+    <div class="down" #down>
+        
+        <mat-card class="down" >
+            <am-table [data]="data" [config]="configUp" [headers]="headersUp"></am-table>
+
+        </mat-card>
+    </div>
+</main>

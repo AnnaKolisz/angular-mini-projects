@@ -1,0 +1,51 @@
+.ctn{
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.up{
+    border: 1px solid red;
+    flex: 1 1 40%;
+   
+}
+
+.down{
+    flex: 1 1 40%;
+    border: 1px solid red;
+
+}
+
+.resizer{
+    height: 5px;
+    width: 100%;
+    background-color: var( --teal-400);
+    margin: 20px 0;
+    
+}
+
+.sign{
+    position: relative;
+    top: -1.20rem;
+    left: 49%;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 3px solid var( --teal-400);
+    background-color: #fff;
+    color: var( --teal-400);
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-icon{
+        transform: rotate(-45deg);
+    }
+}
+
+mat-card{
+    height: inherit;
+    overflow: auto;
+    background-color: #fff;
+
+  
+}
+

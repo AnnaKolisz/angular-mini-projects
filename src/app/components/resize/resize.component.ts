@@ -48,8 +48,9 @@ export class ResizeComponent implements OnInit, AfterViewInit {
     //Get the current mouse position
     this.x = event.clientX;
     this.y = event.clientY;
+    console.log(this.up)
     this.upHeight = this.up.nativeElement.getBoundingClientRect().height;
-    console.log('bum', this.x, this.y, this.upHeight);
+   // console.log('bum', this.x, this.y, this.upHeight);
 
     // Attach the listeners to `document`
     //document.addEventListener('mousemove', this.mouseMoveHandler);
@@ -59,12 +60,17 @@ export class ResizeComponent implements OnInit, AfterViewInit {
   };
 
   mouseMoveHandler(event) {
+    console.log(event);
     const dx = event.clientX - this.x;
     const dy = event.clientY - this.y;
-   //const newUpHeight = ((this.upHeight + dy) * 100) / this.resizer.nativeElement.parentNode.getBoundingClientRect().height;
-   const newUpHeight = this.upHeight + dy - 24;
+    console.log('bum', 'x', this.x, 'y', this.y, 'upHeight', this.upHeight);
+    console.log(this.resizer.nativeElement.parentNode.getBoundingClientRect().height)
+   const newUpHeight = ((this.upHeight + dy) * 100) / this.resizer.nativeElement.parentNode.getBoundingClientRect().height;
+
+ //  const newUpHeight = this.upHeight + dy - 24;
     console.log('new', newUpHeight);
-    this.up.nativeElement.style.height = `${newUpHeight}px`;
+    this.up.nativeElement.style.height = `${newUpHeight}%`;
+    console.log(this.up.nativeElement);
     this.renderer.setStyle(this.resizer.nativeElement, 'cursor', 'row-resize');
     this.renderer.setStyle(document.body, 'cursor', 'row-resize');
     this.renderer.setStyle(this.up.nativeElement, 'userSelect', 'none');
@@ -103,12 +109,6 @@ export class ResizeComponent implements OnInit, AfterViewInit {
  this.upListen();
 
   }
-
-  remove(){
-   console.log('remove');
-   
-  }
-
 
   //https://htmldom.dev/create-resizable-split-views/
 

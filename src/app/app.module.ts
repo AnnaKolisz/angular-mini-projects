@@ -15,7 +15,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ReviewFormRatingsComponent } from './components/review-form/review-form-ratings/review-form-ratings.component';
 import { ResizeComponent } from './components/resize/resize.component';
 import { TableComponent } from './components/shared/table/table.component';
-
+import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
 
 
 
@@ -30,7 +30,8 @@ import { TableComponent } from './components/shared/table/table.component';
     MenuComponent,
     ReviewFormRatingsComponent,
     ResizeComponent,
-    TableComponent
+    TableComponent,
+    SignaturePadComponent
   ],
   imports: [
     BrowserModule,

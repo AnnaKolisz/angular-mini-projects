@@ -22,6 +22,12 @@
       "description": "TODO ",
       "link": "resize",
       "icon": "expand"
+    },
+    {
+      "title": "Signature pad",
+      "description": "TODO ",
+      "link": "signature-pad",
+      "icon": "edit"
     }
 
 ]

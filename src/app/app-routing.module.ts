@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MultiFilterComponent } from './components/multi-filter/multi-filter.component';
 import { ResizeComponent } from './components/resize/resize.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
+import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,11 @@ const routes: Routes = [
     path: 'resize',
     component: ResizeComponent,
     title: 'Resize view'
+  },
+  {
+    path: 'signature-pad',
+    component: SignaturePadComponent,
+    title: 'Signature Pad'
   },
 ];
 

@@ -1,5 +1,5 @@
 <main class="ctn">
-    <mat-card>
+ <mat-card>
         <form class="overflow" [formGroup]="filForm">
             <table cdk-table [dataSource]="dataSource" class="tbl">
                 <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">

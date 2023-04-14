@@ -2,7 +2,7 @@ import { FocusMonitor } from '@angular/cdk/a11y';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, ElementRef, Inject, Input, OnDestroy, OnInit, Optional, Self, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, UntypedFormBuilder, UntypedFormGroup, NgControl, Validators } from '@angular/forms';
-import { MatLegacyFormField as MatFormField, MatLegacyFormFieldControl as MatFormFieldControl, MAT_LEGACY_FORM_FIELD as MAT_FORM_FIELD } from '@angular/material/legacy-form-field';
+import { MAT_FORM_FIELD, MatFormField, MatFormFieldControl } from '@angular/material/form-field';
 import { Observable, Subject } from 'rxjs';
 
 export class HourMinute {

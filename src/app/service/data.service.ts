@@ -15,6 +15,10 @@ import { Employee, Project } from "../model/data";
       return this.http.get<Employee[]>('assets/db/mock-data.json');
     }
 
+    getData1000(): Observable<Employee[]>{
+      return this.http.get<Employee[]>('assets/db/mock-data-1000.json');
+    }
+
     getProjects(): Observable<Project[]>{
       return this.http.get<Project[]>('assets/db/projects.json');
     }

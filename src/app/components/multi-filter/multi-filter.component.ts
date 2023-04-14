@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
-
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'am-multi-filter',
@@ -31,9 +30,8 @@ export class MultiFilterComponent implements OnInit {
     this.filteredColums = this.displayedColumns.map(item => `fltr-${item}`)
     const groupForm = this.arrayToFormControls(this.displayedColumns);
     this.filForm = this.formBuilder.group(groupForm);
-    console.log(this.filForm);
-    this.employees$ = this.dataService.getData200();
-    this.dataService.getData200().subscribe(items => {
+    this.employees$ = this.dataService.getData1000();
+    this.dataService.getData1000().subscribe(items => {
       this.employees = items;
       this.dataSource = new MatTableDataSource(this.employees);
       try {

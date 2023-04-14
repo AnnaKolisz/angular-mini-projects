@@ -26,3 +26,8 @@ export interface ConfigTable{
     link?: string;
     linkName?: string;
 }
+
+export interface KeyTitle {
+    key: string;
+    title: string;
+}

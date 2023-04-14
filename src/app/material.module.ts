@@ -12,6 +12,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule } from "@angular/material/button";
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 export const MY_FORMATS = {
     parse: {
@@ -38,7 +39,8 @@ const modules = [
     MatSelectModule,
     MatButtonModule,
     CdkTableModule,
-    MatCardModule
+    MatCardModule,
+    ScrollingModule
 ]
 
 @NgModule({

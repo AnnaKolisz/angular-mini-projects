@@ -44,11 +44,11 @@ export class ResizeComponent implements OnInit, AfterViewInit {
   
 
   mouseDownHandler(event: MouseEvent) {
-    console.log(event);
+    //console.log(event);
     //Get the current mouse position
     this.x = event.clientX;
     this.y = event.clientY;
-    console.log(this.up)
+   // console.log(this.up)
     this.upHeight = this.up.nativeElement.getBoundingClientRect().height;
    // console.log('bum', this.x, this.y, this.upHeight);
 

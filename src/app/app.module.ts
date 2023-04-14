@@ -16,6 +16,8 @@ import { ReviewFormRatingsComponent } from './components/review-form/review-form
 import { ResizeComponent } from './components/resize/resize.component';
 import { TableComponent } from './components/shared/table/table.component';
 import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
+import { TableScrollableComponent } from './components/shared/table-scrollable/table-scrollable.component';
+import { TableDataComponent } from './components/table-data/table-data.component';
 
 
 
@@ -31,7 +33,9 @@ import { SignaturePadComponent } from './components/signature-pad/signature-pad.
     ReviewFormRatingsComponent,
     ResizeComponent,
     TableComponent,
-    SignaturePadComponent
+    SignaturePadComponent,
+    TableScrollableComponent,
+    TableDataComponent
   ],
   imports: [
     BrowserModule,

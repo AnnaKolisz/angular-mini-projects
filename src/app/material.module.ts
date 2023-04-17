@@ -13,6 +13,8 @@ import { MatSelectModule } from "@angular/material/select";
 import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule } from "@angular/material/button";
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 export const MY_FORMATS = {
     parse: {
@@ -40,7 +42,9 @@ const modules = [
     MatButtonModule,
     CdkTableModule,
     MatCardModule,
-    ScrollingModule
+    ScrollingModule,
+    MatPaginatorModule,
+    MatSortModule
 ]
 
 @NgModule({

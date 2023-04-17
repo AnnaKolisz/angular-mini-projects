@@ -9,33 +9,34 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$angular-mini-primary: mat.define-palette(mat.$teal-palette, 300);
-$angular-mini-accent: mat.define-palette(mat.$orange-palette, 400);
+$angular-custom-primary: mat.define-palette(mat.$teal-palette, 300);
+$angular-custom-accent: mat.define-palette(mat.$orange-palette, 400);
 
 // The warn palette is optional (defaults to red).
-$angular-mini-warn: mat.define-palette(mat.$pink-palette, 900);
+$angular-custom-warn: mat.define-palette(mat.$pink-palette, 900);
+
+$custom-typography: mat.define-typography-config(
+    $font-family: var(--main-font)
+);
+@include mat.all-component-typographies($custom-typography);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$angular-mini-theme: mat.define-light-theme((
+$angular-custom-theme: mat.define-light-theme((
   color: (
-    primary: $angular-mini-primary,
-    accent: $angular-mini-accent,
-    warn: $angular-mini-warn,
-  )
+    primary: $angular-custom-primary,
+    accent: $angular-custom-accent,
+    warn: $angular-custom-warn,
+  ),
+ // typography: $custom-typography,
+  density: 0,
 ));
-
-$custom-typography: mat.define-legacy-typography-config(
-    $font-family: var(--main-font)
-);
-
-@include mat.all-component-typographies($custom-typography);
-
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($angular-mini-theme);
+@include mat.all-component-themes($angular-custom-theme);
+@include mat.all-legacy-component-themes($angular-custom-theme); 
 
 
 html, body { height: 100%; }

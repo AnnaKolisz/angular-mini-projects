@@ -1,0 +1,22 @@
+<div class="ctn">
+    <div class="ctn__overflow">
+        <table cdk-table [dataSource]="dataSource" class="table" matSort>
+
+
+            <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
+                <th cdk-header-cell *cdkHeaderCellDef mat-sort-header> {{ item.show}} </th>
+                <td cdk-cell *cdkCellDef="let row"> {{row[item.key]}} </td>
+
+            </ng-container>
+
+
+
+            <tr cdk-header-row *cdkHeaderRowDef="displayedColumns" class="table__row-header"></tr>
+
+            <tr cdk-row *cdkRowDef="let row; columns: displayedColumns" class="table__row"></tr>
+
+        </table>
+    </div>
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+    <div></div>
+</div>

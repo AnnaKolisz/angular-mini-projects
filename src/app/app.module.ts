@@ -18,6 +18,8 @@ import { TableComponent } from './components/shared/table/table.component';
 import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
 import { TableScrollableComponent } from './components/shared/table-scrollable/table-scrollable.component';
 import { TableDataComponent } from './components/table-data/table-data.component';
+import { DataPortionComponent } from './components/data-portion/data-portion.component';
+import { TablePaginationComponent } from './components/shared/table-pagination/table-pagination.component';
 
 
 
@@ -35,7 +37,9 @@ import { TableDataComponent } from './components/table-data/table-data.component
     TableComponent,
     SignaturePadComponent,
     TableScrollableComponent,
-    TableDataComponent
+    TableDataComponent,
+    DataPortionComponent,
+    TablePaginationComponent
   ],
   imports: [
     BrowserModule,

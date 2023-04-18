@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Employee } from 'src/app/model/data';
+import { ConfigTable, Employee } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
 
@@ -13,6 +13,14 @@ export class DataPortionComponent {
   data: Employee[] = [];
   configColumns = CONFIG_COLUMNS;
   displayedColumns = COLUMNS;
+  headersUp = ["First Name", "Last Name", "Company", "Department"]
+  configUp: ConfigTable[] = [
+    { key: 'firstName' },
+    { key: 'lastName' },
+    { key: 'company' },
+    { key: 'department' },
+
+  ];
 
   constructor(
     private dataService: DataService,
@@ -20,5 +28,10 @@ export class DataPortionComponent {
   
   ngOnInit(): void {
     this.dataService.getData1000().subscribe(list => this.data = list);
+    this.onScroll();
+  }
+
+  onScroll() {
+    console.log("scrolled!!");
   }
 }

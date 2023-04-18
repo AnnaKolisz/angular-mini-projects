@@ -1,43 +1,26 @@
-<table class="table">
-    <thead>
-        <tr class="table__row-header">
-            <th *ngFor="let head of headers">
-                {{head }}
-            </th>
-        </tr>
-    </thead>
-    <tbody #sharedTableBody>
-        <tr *ngFor="let item of data" class="table__row">
-            <td *ngFor="let prop of config">
-                <div [ngSwitch]="prop.type">
-                     <div *ngSwitchCase="'date'">
-                        {{item[prop.key] | date: 'ddMMyyyy'}}
-                    </div> 
-                    <div *ngSwitchDefault>
-                        {{item[prop.key]}}
-                    </div>
-                    <!-- <div *ngSwitchCase="'null'">
-                        {{item[prop.key] ? item[prop.key] : ' ' }}
-                    </div> -->
+<cdk-virtual-scroll-viewport itemSize="16" class="example-viewport">
+    <table class="table">
+        <thead>
+            <tr class="table__row-header">
+                <th *ngFor="let head of headers">
+                    {{head }}
+                </th>
+            </tr>
+        </thead>
+        <tbody #sharedTableBody>
+            <tr *cdkVirtualFor="let item of data" class="table__row">
+                <td *ngFor="let prop of config">
+                    <div [ngSwitch]="prop.type">
+                        <div *ngSwitchCase="'date'">
+                            {{item[prop.key] | date: 'ddMMyyyy'}}
+                        </div>
+                        <div *ngSwitchDefault>
+                            {{item[prop.key]}}
+                        </div>
 
-                    <!-- <div *ngSwitchCase="'decimal'">
-                        {{item[prop.key] | number:'1.2-2'}}
                     </div>
-                    
-
-                   
-                    <div *ngSwitchCase="'largeContent'" class="table__cell-large">
-                        {{item[prop.key]}}
-                    </div> -->
-                    <!--                  
-                    <div *ngSwitchCase="'link'">
-                        <a class="link" [routerLink]="[prop.link, item[prop.key] ]"> {{ prop.linkName }}</a>
-                    </div> 
-                    
-                  
-                -->
-                </div>
-            </td> 
-        </tr>
-    </tbody>
-</table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</cdk-virtual-scroll-viewport>

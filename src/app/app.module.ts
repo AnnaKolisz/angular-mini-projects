@@ -20,7 +20,7 @@ import { TableScrollableComponent } from './components/shared/table-scrollable/t
 import { TableDataComponent } from './components/table-data/table-data.component';
 import { DataPortionComponent } from './components/data-portion/data-portion.component';
 import { TablePaginationComponent } from './components/shared/table-pagination/table-pagination.component';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -48,7 +48,8 @@ import { TablePaginationComponent } from './components/shared/table-pagination/t
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+   InfiniteScrollModule
   ],
   providers: [
    

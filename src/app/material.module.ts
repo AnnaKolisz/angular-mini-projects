@@ -15,6 +15,8 @@ import { MatButtonModule } from "@angular/material/button";
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatTableModule } from "@angular/material/table";
 
 export const MY_FORMATS = {
     parse: {
@@ -44,7 +46,9 @@ const modules = [
     MatCardModule,
     ScrollingModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatTabsModule,
+    MatTableModule
 ]
 
 @NgModule({

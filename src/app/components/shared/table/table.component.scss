@@ -3,4 +3,13 @@
 .table{
     @include table();
     padding: 0 .75rem;
-  }
+}
+    
+    .example-viewport {
+      height: inherit;
+  
+    }
+    
+    .example-item {
+      height: 50px;
+    }

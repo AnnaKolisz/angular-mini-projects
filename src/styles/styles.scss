@@ -1,6 +1,8 @@
 //@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
 :root {
-    --main-font: Lato, "Cosmic Sans", sans-serif;
+    --main-font: Lato, "Comic Sans", sans-serif;
     --pink-100: #F8BBD0;
    --pink-300: #F06292;
    --pink-600: #D81B60;
@@ -31,3 +33,5 @@ body {
     height: 100vh;
     font-size: 16px;
 }
+
+body { margin: 0; font-family: var(--main-font) }

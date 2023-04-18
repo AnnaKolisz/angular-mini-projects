@@ -11,7 +11,7 @@
 
 
 
-            <tr cdk-header-row *cdkHeaderRowDef="displayedColumns" class="table__row-header"></tr>
+            <tr cdk-header-row *cdkHeaderRowDef="displayedColumns; sticky: true" class="table__row-header"></tr>
 
             <tr cdk-row *cdkRowDef="let row; columns: displayedColumns" class="table__row"></tr>
 

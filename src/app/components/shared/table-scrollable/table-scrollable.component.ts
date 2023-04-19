@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { KeyTitle } from 'src/app/model/data';
 
@@ -13,12 +13,27 @@ export class TableScrollableComponent<T> {
   dataSource =new MatTableDataSource<T>();
   @Input() configColumns;
   @Input() displayedColumns: string[];
-  dataa;
+  dataOriginal: T[] = [];
+  @Output() updateScrollItems = new EventEmitter<number>()
 
-  @Input() set data(arr: T[] | null){
-    this.dataSource.data = arr || [];
-    this.dataa = arr || [];
+  @Input() set data(arr: T[]){
+    this.dataOriginal = arr;
+    if(arr){
+      this.dataSource.data = arr.slice(0, 100);
+      this.updateScrollItems.emit(this.dataSource.data.length);
+
+    }
+ 
   }
- // https://stackblitz.com/edit/cdk-virtual-mat-table?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2Fapp.component.html
+
+  onScroll() {
+    console.log("scrolled!!");
+    const num = this.dataSource.data.length + 1;
+    const newPart = this.dataOriginal.slice(num, (num+50));
+    this.dataSource.data.push(...newPart)
+    this.dataSource._updateChangeSubscription();
+    this.updateScrollItems.emit(this.dataSource.data.length);
+  }
+
 
 }

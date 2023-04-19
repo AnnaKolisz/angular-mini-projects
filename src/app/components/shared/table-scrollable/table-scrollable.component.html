@@ -1,23 +1,22 @@
-<cdk-virtual-scroll-viewport itemSize="16" class="example-viewport">
-    <!-- <div *cdkVirtualFor="let item of data" class="example-item">{{item.firstName}} {{item.id}}</div> -->
-    <table cdk-table [dataSource]="dataSource" class="table">
+<div class="ctn">
+    <am-infinite-scroll (scrolled)="onScroll()">
+        <table cdk-table [dataSource]="dataSource" class="table">
 
 
-        <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
-            <th cdk-header-cell *cdkHeaderCellDef> {{ item.title}} </th>
-            <td cdk-cell *cdkCellDef="let row"> {{row[item.key]}} </td>
+            <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
+                <th cdk-header-cell *cdkHeaderCellDef> {{ item.title}} </th>
+                <td cdk-cell *cdkCellDef="let row"> {{row[item.key]}} </td>
 
-        </ng-container>
-
-
-
-        <tr cdk-header-row *cdkHeaderRowDef="displayedColumns" class="table__row-header"></tr>
-
-        <tr cdk-row *cdkRowDef="let row; columns: displayedColumns" class="table__row"></tr>
-
-
-    </table>
+            </ng-container>
 
 
 
-</cdk-virtual-scroll-viewport>
+            <tr cdk-header-row *cdkHeaderRowDef="displayedColumns" class="table__row-header"></tr>
+
+            <tr cdk-row *cdkRowDef="let row; columns: displayedColumns" class="table__row"></tr>
+
+
+        </table>
+
+    </am-infinite-scroll>
+</div>

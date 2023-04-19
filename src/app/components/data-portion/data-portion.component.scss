@@ -2,7 +2,7 @@
     padding: .5rem 1.25rem;
     h2{
         margin-left: 4rem;
-        color: var(--orange-50);
+        color: var(--teal-900)
     }
 }
 
@@ -23,6 +23,8 @@ am-table{
 }
 
 .search-results {
-    height: 40rem;
+  //  height: 40rem;
+  height: 600px;
     overflow: auto;
+    padding: 1rem;
   }

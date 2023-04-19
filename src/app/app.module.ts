@@ -21,6 +21,7 @@ import { TableDataComponent } from './components/table-data/table-data.component
 import { DataPortionComponent } from './components/data-portion/data-portion.component';
 import { TablePaginationComponent } from './components/shared/table-pagination/table-pagination.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     TableScrollableComponent,
     TableDataComponent,
     DataPortionComponent,
-    TablePaginationComponent
+    TablePaginationComponent,
+    InfiniteScrollComponent
   ],
   imports: [
     BrowserModule,

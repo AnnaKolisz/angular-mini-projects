@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ConfigTable, Employee } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
@@ -11,6 +11,8 @@ import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
 export class DataPortionComponent {
   
   data: Employee[] = [];
+  scrollItems: number;
+
   configColumns = CONFIG_COLUMNS;
   displayedColumns = COLUMNS;
   headersUp = ["First Name", "Last Name", "Company", "Department"]
@@ -24,14 +26,17 @@ export class DataPortionComponent {
 
   constructor(
     private dataService: DataService,
+    private render: Renderer2
   ) { }
   
   ngOnInit(): void {
-    this.dataService.getData1000().subscribe(list => this.data = list);
-    this.onScroll();
-  }
+    this.dataService.getData1000().subscribe(list =>{
+      this.data = list;     
+    } );
 
-  onScroll() {
-    console.log("scrolled!!");
   }
+  
+
+
+
 }

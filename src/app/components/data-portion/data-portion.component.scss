@@ -1,30 +1,36 @@
 .main {
-    padding: .5rem 1.25rem;
-    h2{
+    padding: 0.5rem 1.25rem;
+    h2 {
         margin-left: 4rem;
-        color: var(--teal-900)
+        margin-top: 0;
+        color: var(--teal-900);
     }
 }
 
+.info {
+    padding-left: 4rem;
+    padding-top: 0.5rem;
+    background-color: var(--teal-50);
+    border-bottom: 3px solid var(--pink-600);
+}
+
 .tabs {
- background-color: #fff;
+    background-color: #fff;
     height: calc(100vh - 160px);
 }
 
-
-am-table-pagination{
+am-table-pagination {
     display: block;
-    height: 100%;
+    height: calc(100vh - 340px);
 }
 
-am-table{
+am-table {
     display: block;
-    height: 800px;
+    height: calc(100vh - 340px);
 }
 
 .search-results {
-  //  height: 40rem;
-  height: 600px;
+    height: calc(100vh - 340px);
     overflow: auto;
-    padding: 1rem;
-  }
+    padding: 0 1rem 1rem;
+}

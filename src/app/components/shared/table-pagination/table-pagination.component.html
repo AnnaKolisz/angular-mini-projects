@@ -1,7 +1,22 @@
 <div class="ctn">
     <div class="ctn__overflow">
         <table cdk-table [dataSource]="dataSource" class="table" matSort>
-
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                               > {{ selection.selected.length}}
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null"
+                                [checked]="selection.isSelected(row)"
+                                >
+                  </mat-checkbox>
+                </td>
+              </ng-container>
 
             <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
                 <th cdk-header-cell *cdkHeaderCellDef mat-sort-header> {{ item.show}} </th>

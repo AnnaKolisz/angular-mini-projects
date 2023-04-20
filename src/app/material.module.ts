@@ -17,6 +17,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatTableModule } from "@angular/material/table";
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 export const MY_FORMATS = {
     parse: {
@@ -48,7 +49,9 @@ const modules = [
     MatPaginatorModule,
     MatSortModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatCheckboxModule,
+
 ]
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -13,11 +14,16 @@ export class TablePaginationComponent<T> implements AfterViewInit {
 
   dataSource =new MatTableDataSource<T>();
   @Input() configColumns;
-  @Input() displayedColumns: string[];
+  displayedColumns: string[];
 
   @Input() set data(arr: T[] | null){
     this.dataSource.data = arr || [];
-  }
+  };
+  @Input() set columns(value: string[]){
+    this.displayedColumns = ['select', ...value]
+  };
+
+  selection = new SelectionModel<T>(true, []);
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -26,5 +32,21 @@ export class TablePaginationComponent<T> implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.selection.select(...this.dataSource.data);
   }
 }

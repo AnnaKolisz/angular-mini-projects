@@ -2,16 +2,32 @@
     <am-infinite-scroll (scrolled)="onScroll()">
         <table cdk-table [dataSource]="dataSource" class="table">
 
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                               > {{ selection.selected.length}}
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null"
+                                [checked]="selection.isSelected(row)"
+                                >
+                  </mat-checkbox>
+                </td>
+              </ng-container>
 
             <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
-                <th cdk-header-cell *cdkHeaderCellDef> {{ item.title}} </th>
+                <th cdk-header-cell *cdkHeaderCellDef> {{ item.show}} </th>
                 <td cdk-cell *cdkCellDef="let row"> {{row[item.key]}} </td>
 
             </ng-container>
 
 
 
-            <tr cdk-header-row *cdkHeaderRowDef="displayedColumns" class="table__row-header"></tr>
+            <tr cdk-header-row *cdkHeaderRowDef="displayedColumns; sticky: true" class="table__row-header"></tr>
 
             <tr cdk-row *cdkRowDef="let row; columns: displayedColumns" class="table__row"></tr>
 

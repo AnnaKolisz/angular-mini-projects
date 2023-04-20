@@ -2,15 +2,19 @@
   <h2>Load data- {{ data.length }} items</h2>
 
 
-  <mat-tab-group  animationDuration="0ms" class="tabs">
+  <mat-tab-group animationDuration="0ms" class="tabs">
 
     <mat-tab label="Infinite Scroll">
+      <div class="info">
+        <h3>Loaded data from scrolling: {{ scrollItems }}</h3>
+        <p> Data load for view are default 100, when scroll is going, then is added additionally 100 item, but for is not updated checked items</p>
 
-     <h3>{{ scrollItems }}</h3>
-     <div class="search-results">
+      </div>
+      <div class="search-results">
 
-       <am-table-scrollable (updateScrollItems)="scrollItems = $event" [data]="data" [displayedColumns]="displayedColumns" [configColumns]="configColumns"></am-table-scrollable>
-     </div>
+        <am-table-scrollable (updateScrollItems)="scrollItems = $event" [data]="data" [columns]="displayedColumns"
+          [configColumns]="configColumns"></am-table-scrollable>
+      </div>
 
 
 
@@ -19,12 +23,20 @@
 
     </mat-tab>
     <mat-tab label="Pagination">
+      <div class="info">
+        <h3>Loaded data depends on chosen option in "Items per page"</h3>
+        <p> Data load for view min;5, max 100</p>
 
-      <am-table-pagination [data]="data" [displayedColumns]="displayedColumns"
+      </div>
+      <am-table-pagination [data]="data" [columns]="displayedColumns"
         [configColumns]="configColumns"></am-table-pagination>
     </mat-tab>
     <mat-tab label="Virtual scroll">
+      <div class="info">
+        <h3>Loaded data depends on choosing</h3>
+        <p>Virtual scroll is not support cdk-table, mat-table</p>
 
+      </div>
       <am-table [data]="data" [headers]="headersUp" [config]="configUp"></am-table>
     </mat-tab>
   </mat-tab-group>

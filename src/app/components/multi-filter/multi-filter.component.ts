@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Employee } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'am-multi-filter',
@@ -14,12 +15,12 @@ import {MatTableDataSource} from '@angular/material/table';
 export class MultiFilterComponent implements OnInit {
 
   employees: Employee[];
-  employees$: Observable<Employee[]>;
-  dataSource: any;
+  dataSource: MatTableDataSource<Employee>;
   configColumns = CONFIG_COLUMNS;
   displayedColumns = COLUMNS;
   filteredColums: string[] = [];
   filForm = new FormGroup({});
+  sub$: Subscription;
 
   constructor(
     private dataService: DataService,
@@ -30,16 +31,22 @@ export class MultiFilterComponent implements OnInit {
     this.filteredColums = this.displayedColumns.map(item => `fltr-${item}`)
     const groupForm = this.arrayToFormControls(this.displayedColumns);
     this.filForm = this.formBuilder.group(groupForm);
-    this.employees$ = this.dataService.getData1000();
-    this.dataService.getData1000().subscribe(items => {
-      this.employees = items;
-      this.dataSource = new MatTableDataSource(this.employees);
-      try {
+    this.dataService.getData200().subscribe(
+      items => {
+        this.employees = items;
+        this.dataSource = new MatTableDataSource(this.employees);
+      },
+      error => { },
+      () => {
         this.dataSource.filterPredicate = this.customFilterPredicate();
-      } catch (e) {
-        console.error('error with filter predicate ');
-      }
-    })
+        this.onChangesFilter();
+      })
+  }
+
+  ngOnDestroy(){
+    if(this.sub$){
+      this.sub$.unsubscribe()
+    }
   }
 
   arrayToFormControls(arr: string[]) {
@@ -47,14 +54,14 @@ export class MultiFilterComponent implements OnInit {
   }
 
   customFilterPredicate() {
-    const myFilterPredicate = (data: any, filter: string): boolean => {
-      console.log(this.dataSource);
-      const searchString = JSON.parse(filter);
+    const myFilterPredicate = (data: Employee, filter: string): boolean => {
+      const searchVal = Object.entries(JSON.parse(filter));
       let check: string[] = [];
       let found: any[] = [];
-      for (let [key, value] of searchString) {
-        if (value.length > 0) { check.push(key) }
-        const x = value.length > 0 && data[key].trim().toLowerCase().indexOf(value.toLowerCase()) !== -1;
+      for (let [key, value] of searchVal) {
+        const val = String(value)
+        if (val.length > 0) { check.push(key) }
+        const x = (val.length > 0 && data[key].trim().toLowerCase().indexOf(val.toLowerCase()) !== -1);
         found.push(x);
       }
       let founder = found.filter(item => item === true);
@@ -62,7 +69,19 @@ export class MultiFilterComponent implements OnInit {
       return verify;
     }
     return myFilterPredicate;
+  } 
+  
+  onChangesFilter() {
+   this.sub$ = this.filForm.valueChanges.pipe(
+    debounceTime(200),
+    distinctUntilChanged(),
+   ).subscribe((mainValue: any) => {
+      this.dataSource.filter = JSON.stringify(mainValue);
+    });
+ 
   }
 
 
 }
+
+

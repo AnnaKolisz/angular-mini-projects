@@ -1,5 +1,5 @@
 <main class="ctn">
- <mat-card>
+    <mat-card>
         <form class="overflow" [formGroup]="filForm">
             <table cdk-table [dataSource]="dataSource" class="tbl">
                 <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
@@ -8,8 +8,11 @@
                 </ng-container>
                 <ng-container *ngFor="let key of filteredColums" cdkColumnDef="{{key}}">
                     <th cdk-header-cell *cdkHeaderCellDef>
-                        <div class="table-planner__flex">
-                            <input formControlName="{{key.substring(5)}}" placeholder="{{key.substring(5)}}">
+                        <div class="tbl__filter">
+                            <mat-icon class="icon">
+                                filter_alt
+                            </mat-icon>
+                            <input class="filter" formControlName="{{key.substring(5)}}">
                         </div>
                     </th>
                 </ng-container>

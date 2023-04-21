@@ -1,54 +1,67 @@
-.ctn{
+.ctn {
     padding: 1rem;
 }
-mat-card{
+mat-card {
     padding: 1rem;
 }
 
-.overflow{
+.overflow {
     height: calc(100vh - 130px);
     overflow: auto;
 }
 
-.tbl{
+.tbl {
     width: 100%;
     border-collapse: separate; /* I don't use collapse because I need border */
     border-spacing: 0;
-    font-size: 14px; 
+    font-size: 14px;
     position: relative;
 
-    th{
-        padding: 8px 24px 8px 2px;  
-        border-bottom: 2px solid var(--teal-600);
+    th {
+        padding: 8px 24px 8px 12px;
     }
-    td{
+    td {
         border-bottom: 1px solid var(--teal-100);
-        padding: 8px 24px 8px 2px;  
+        padding: 8px 24px 8px 16px;
     }
-    &__row{
+    &__row {
         text-align: left;
-        // padding: 0.5rem 0 1rem 0 ;
-    }  
-    &__row-header{
-        border-bottom: 1px solid var(--eon-darkgrey);
+    }
+    &__row-header {
         text-align: left;
         height: 50px;
-        th{
+        th {
             top: 0;
             background-color: white;
-            position: sticky; 
-            z-index: 10; 
+            position: sticky;
+            z-index: 10;
         }
     }
-    &__row-dark{
-        border-bottom: 1px solid var(--eon-darkgrey);
+    &__row-dark {
         text-align: left;
         height: 50px;
-        th{
+        th {
             top: 50px;
-            background-color: var(--teal-600);
-            position: sticky; 
-            z-index: 10; 
+            background-color: var(--orange-200);
+            position: sticky;
+            z-index: 10;
+        }
+    }
+    &__filter {
+        .icon {
+            position: absolute;
+            left: 0.75em;
+            top: 0.5em;
+            color: var(--orange-700);
+        }
+        .filter {
+            padding: 0.75em 1rem 0.75em 2rem;
+            border-radius: 10px;
+            border: none;
+            box-shadow: var(--orange-500) 0px 5px 15px;
+            &:focus{
+                outline: thick double var(--orange-700);
+            }
         }
     }
 }

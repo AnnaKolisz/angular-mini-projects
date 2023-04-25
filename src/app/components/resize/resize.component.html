@@ -1,21 +1,29 @@
 <main class="ctn" #ctn>
    
-
-
     <div class="up" #up>
-        <am-table [data]="data" [config]="configUp" [headers]="headersUp"></am-table>
-
+        <am-table-scrollable  [data]="data" [columns]="displayedColumns"
+        [configColumns]="configColumns"></am-table-scrollable>
     </div>
 
-
-    <div class="resizer" #dragMe>
-
-    </div>
-
+    <div class="resizer" #dragMe></div>
 
     <div class="down" #down>
-        <am-table [data]="data" [config]="configUp" [headers]="headersUp"></am-table>
+        <am-table-virtual [data]="data" [columns]="displayedColumns" [configColumns]="configColumns"></am-table-virtual>
+    </div> 
 
+    <!-- <div class="up" #up>
+    
+        <am-table-virtual [data]="data" [columns]="displayedColumns" [configColumns]="configColumns"></am-table-virtual>
     </div>
+    
+    
+    <div class="resizer" #dragMe>     </div>
+    
+    
+    <div class="down" #down>
+        <am-table-scrollable  [data]="data" [columns]="displayedColumns"
+        [configColumns]="configColumns"></am-table-scrollable>
+    </div> -->
+
 
 </main>

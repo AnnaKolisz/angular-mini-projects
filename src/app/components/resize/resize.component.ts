@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } fr
 import { Observable, of } from 'rxjs';
 import { ConfigTable, Employee } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
+import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
 
 @Component({
   selector: 'am-resize',
@@ -29,6 +30,9 @@ export class ResizeComponent implements OnInit, AfterViewInit {
   moveListen: Function;
   upListen: Function;
 
+  configColumns = CONFIG_COLUMNS;
+  displayedColumns = COLUMNS;
+
   constructor(
     private dataService: DataService,
     private renderer: Renderer2
@@ -44,35 +48,25 @@ export class ResizeComponent implements OnInit, AfterViewInit {
   
 
   mouseDownHandler(event: MouseEvent) {
-    //console.log(event);
     //Get the current mouse position
     this.x = event.clientX;
     this.y = event.clientY;
-   // console.log(this.up)
     this.upHeight = this.up.nativeElement.getBoundingClientRect().height;
-   // console.log('bum', this.x, this.y, this.upHeight);
-
     // Attach the listeners to `document`
     //document.addEventListener('mousemove', this.mouseMoveHandler);
     this.moveListen = this.renderer.listen(document, 'mousemove', this.mouseMoveHandler.bind(this));
-
     this.upListen = this.renderer.listen(document, 'mouseup', this.mouseUpHandler.bind(this));
   };
 
   mouseMoveHandler(event) {
-    console.log(event);
     const dx = event.clientX - this.x;
     const dy = event.clientY - this.y;
-    console.log('bum', 'x', this.x, 'y', this.y, 'upHeight', this.upHeight);
-    console.log(this.resizer.nativeElement.parentNode.getBoundingClientRect().height)
    const newUpHeight = ((this.upHeight + dy) * 100) / this.resizer.nativeElement.parentNode.getBoundingClientRect().height;
 
  //  const newUpHeight = this.upHeight + dy - 24;
-    console.log('new', newUpHeight);
     this.up.nativeElement.style.height = `${newUpHeight}%`;
-    console.log(this.up.nativeElement);
-    this.renderer.setStyle(this.resizer.nativeElement, 'cursor', 'row-resize');
-    this.renderer.setStyle(document.body, 'cursor', 'row-resize');
+    this.renderer.setStyle(this.resizer.nativeElement, 'cursor', 'ns-resize');
+    this.renderer.setStyle(document.body, 'cursor', 'ns-resize');
     this.renderer.setStyle(this.up.nativeElement, 'userSelect', 'none');
     this.renderer.setStyle(this.up.nativeElement, 'pointerEvents', 'none');
     this.renderer.setStyle(this.down.nativeElement, 'userSelect', 'none');

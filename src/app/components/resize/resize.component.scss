@@ -22,7 +22,14 @@
     background-color: var( --teal-400);
     margin: 20px 0;
     z-index: 10;
-   
+    &:hover{
+        background-color: var( --pink-400);
+        cursor: ns-resize;
+    }
+    &:active{
+        background-color: var( --pink-600);
+        cursor: ns-resize;
+    }
 }
 
 .sign{
@@ -46,8 +53,11 @@
 am-table{
     height: 100%;
 
-
 }
 
+am-table-virtual {
+    display: block;
+    height: 100%;
+}
 
 

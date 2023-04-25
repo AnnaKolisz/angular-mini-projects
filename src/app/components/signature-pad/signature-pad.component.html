@@ -5,7 +5,7 @@
             <h3> Tutorial by Adnane Lamghari  
 
 
-                <a href="https://itnext.io/make-a-signing-pad-in-angular-vanilla-js-7a3eb7e0599d" target="_blank"> Link to
+                <a href="https://itnext.io/make-a-signing-pad-in-angular-vanilla-js-7a3eb7e0599d" target="_blank" class="link"> Link to
                     tutorial </a>
             </h3>
         </div>
@@ -19,6 +19,6 @@
             <button mat-flat-button color="accent" (click)="clearSignature()">Clear</button>
         </div>
         <p>Results</p>
-         <img src="{{signatureImg}}" alt="">
+         <img  src="{{signatureImg}}" alt="" [ngClass]="signatureImg || 'not-found'" >
     </div>
 </main>

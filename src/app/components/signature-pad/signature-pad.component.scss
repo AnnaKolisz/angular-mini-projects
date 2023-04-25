@@ -1,3 +1,5 @@
+@import 'mixins';
+
 main {
     padding: 1rem;
 }
@@ -47,11 +49,19 @@ img{
     border: 2px solid var(--teal-300);
     width: 600px; 
     height: 300px;
-    background-color: #FFF3E0;
+    background-color: var(--orange-50);
 }
 
 p{
     align-self: flex-start;
-    margin-bottom: 0;
+    margin: 0;
     color: var(--teal-900);
+}
+
+.not-found{
+    display: none;
+}
+
+.link{
+    @include linky();
 }

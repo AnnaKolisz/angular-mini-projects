@@ -53,17 +53,14 @@
     li a:hover {
         color: var(--orange-900);
     }
-    // li a:hover:before {
-    //     left: 0;
-    //     opacity: 1;
-    // }
+
     li:hover h2 {
-        color: #FFF3E0;
+        color: var(--pink-50);
         opacity: 1;
     }
 
     li:hover:before{
-        background: var(--teal-400);
+        background: var(--pink-200);
         transition: all 0.3s ease-in-out;
     }
 
@@ -78,14 +75,6 @@
         background: var(--teal-200);
         transform: skew(8deg, 4deg);
     }
-    // li:after {
-    //     content: "";
-    //     position: absolute;
-    //     width: 40%;
-    //     height: 100%;
-    //     left: 0;
-    //     top: 0;
-    //     background: rgba(255, 255, 255, 0.02);
-    // }
+ 
 
 }

@@ -8,8 +8,7 @@ import { Component, ElementRef, EventEmitter, HostListener, Output, ViewChild } 
 export class SignaturePadComponent {
   
   @ViewChild('signPad', {static: false}) signPad!: ElementRef<HTMLCanvasElement>;
-  @Output() signatureSaved = new EventEmitter();
-   signatureImg?: string;
+   signatureImg?: string = '';
   private sigPadElement: any;
   private context: any;
   private isDrawing!: boolean;
@@ -52,8 +51,6 @@ export class SignaturePadComponent {
 
   saveSignature(): void {
     this.signatureImg = this.sigPadElement.toDataURL('image/png');
-   // this.signatureSaved.emit(this.signatureImg);
-
   }
 
   private relativeCoords(event: any): { x: number, y: number } {

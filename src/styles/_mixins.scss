@@ -31,3 +31,16 @@
         height: 50px;
     }
 }
+
+@mixin linky{
+    color: var(--orange-700);
+    &:active{
+        color: var(--orange-900);
+    }
+    &:hover{
+        color: var(--pink-400);
+    }
+    &:visited{
+        color: var(--pink-600);
+    }
+}

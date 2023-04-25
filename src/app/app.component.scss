@@ -17,12 +17,12 @@ mat-toolbar{
     cursor: pointer;
 
     &__icon {
-        width: 2rem;
-        height: 0.5rem;
+        width: 40px;
+        height: 10px;
         background-color: var( --teal-300);
         margin: 3px;
         position: relative;
-        border-radius: 2px;
+        border-radius: 5px;
     }
   }
 

@@ -6,7 +6,8 @@
     padding: 0 24px;
     li{
         list-style: none;      
-        padding-bottom: 4px;  
+        padding-bottom: 4px; 
+        height: 32px; 
         &:hover{
             border-bottom: 1px solid var(--teal-300); 
         }

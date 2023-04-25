@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableDataComponent } from './table-data.component';
+import { TableVirtualComponent } from './table-virtual.component';
 
-describe('TableDataComponent', () => {
-  let component: TableDataComponent;
-  let fixture: ComponentFixture<TableDataComponent>;
+describe('TableVirtualComponent', () => {
+  let component: TableVirtualComponent;
+  let fixture: ComponentFixture<TableVirtualComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableDataComponent ]
+      declarations: [ TableVirtualComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TableDataComponent);
+    fixture = TestBed.createComponent(TableVirtualComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

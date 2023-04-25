@@ -17,11 +17,11 @@ import { ResizeComponent } from './components/resize/resize.component';
 import { TableComponent } from './components/shared/table/table.component';
 import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
 import { TableScrollableComponent } from './components/shared/table-scrollable/table-scrollable.component';
-import { TableDataComponent } from './components/table-data/table-data.component';
 import { DataPortionComponent } from './components/data-portion/data-portion.component';
 import { TablePaginationComponent } from './components/shared/table-pagination/table-pagination.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
+import { TableVirtualComponent } from './components/shared/table-virtual/table-virtual.component';
 
 
 @NgModule({
@@ -38,10 +38,10 @@ import { InfiniteScrollComponent } from './components/shared/infinite-scroll/inf
     TableComponent,
     SignaturePadComponent,
     TableScrollableComponent,
-    TableDataComponent,
     DataPortionComponent,
     TablePaginationComponent,
-    InfiniteScrollComponent
+    InfiniteScrollComponent,
+    TableVirtualComponent
   ],
   imports: [
     BrowserModule,

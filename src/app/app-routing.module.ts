@@ -6,7 +6,6 @@ import { MultiFilterComponent } from './components/multi-filter/multi-filter.com
 import { ResizeComponent } from './components/resize/resize.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
-import { TableDataComponent } from './components/table-data/table-data.component';
 import { DataPortionComponent } from './components/data-portion/data-portion.component';
 
 
@@ -37,11 +36,6 @@ const routes: Routes = [
     path: 'signature-pad',
     component: SignaturePadComponent,
     title: 'Signature Pad'
-  },
-  {
-    path: 'table-scroll',
-    component: TableDataComponent,
-    title: 'Table Virtual Scroll'
   },
   {
     path: 'data-portion',

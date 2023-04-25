@@ -1,0 +1,32 @@
+ <cdk-virtual-scroll-viewport #viewPort [itemSize]="itemSize"> 
+    <table mat-table #table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef [style.top.px]="offset">
+              <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                           > {{ selection.selected.length}}
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                            >
+              </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
+            <th cdk-header-cell *cdkHeaderCellDef  [style.top.px]="offset" class="heady"> {{ item.show}} </th>
+            <td cdk-cell *cdkCellDef="let row" class="heady"> {{row[item.key]}} </td>
+
+        </ng-container>
+
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" [style.top.px]="offset "></tr>
+      
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+ </cdk-virtual-scroll-viewport> 

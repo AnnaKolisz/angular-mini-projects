@@ -1,0 +1,20 @@
+@import 'mixins';
+
+
+
+  
+  cdk-virtual-scroll-viewport {
+    height: inherit;
+    width: 100%;
+  }
+  
+  table {
+    // width: 100%;
+    // height: 100%;
+    @include table();
+    padding: 0 .75rem;
+  }
+  
+ .heady{
+    width: 200px;
+  }

@@ -22,6 +22,7 @@ import { TablePaginationComponent } from './components/shared/table-pagination/t
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
 import { TableVirtualComponent } from './components/shared/table-virtual/table-virtual.component';
+import { DateActionComponent } from './components/date-hour-pickers/date-action/date-action.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { TableVirtualComponent } from './components/shared/table-virtual/table-v
     DataPortionComponent,
     TablePaginationComponent,
     InfiniteScrollComponent,
-    TableVirtualComponent
+    TableVirtualComponent,
+    DateActionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<mat-form-field >
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" [formControl]="dateForm">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <button mat-icon-button (click)="$event.stopPropagation(); setUpDate()" matIconSuffix>
+        <mat-icon>restore</mat-icon>
+    </button>
+  
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>

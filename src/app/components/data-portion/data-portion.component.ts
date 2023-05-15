@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component,  Renderer2, } from '@angular/core';
 import { ConfigTable, Employee } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';

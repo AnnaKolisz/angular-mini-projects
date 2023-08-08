@@ -23,7 +23,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
 import { TableVirtualComponent } from './components/shared/table-virtual/table-virtual.component';
 import { DateActionComponent } from './components/date-hour-pickers/date-action/date-action.component';
-
+import { SelectAutocompleteComponent } from './components/select-autocomplete/select-autocomplete.component';
+import { TeamViewItemComponent } from './components/select-autocomplete/team-view-item/team-view-item.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { DateActionComponent } from './components/date-hour-pickers/date-action/
     TablePaginationComponent,
     InfiniteScrollComponent,
     TableVirtualComponent,
-    DateActionComponent
+    DateActionComponent,
+    SelectAutocompleteComponent,
+    TeamViewItemComponent
   ],
   imports: [
     BrowserModule,

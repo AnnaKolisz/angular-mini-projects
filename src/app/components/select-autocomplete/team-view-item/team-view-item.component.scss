@@ -1,0 +1,50 @@
+
+.team{
+    padding: 1rem;
+    &__panel{
+        border-bottom: 3px double var(--teal-300);
+        padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        h3{
+            text-transform: uppercase;
+            color: var(--teal-600);
+        }
+
+    }
+}
+
+.list{
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 80px 120px 80px 120px;
+    gap: 2rem 2.5rem;
+    &__members{
+        width: 280px;;
+    }
+}
+
+dt{
+    
+    font-weight: bold;
+    color: var(--orange-500);
+    &::after{
+        content: ":";
+    }
+} 
+
+dd{
+    margin: 0;
+}
+
+dt:last-of-type{
+    color: var(--pink-500); 
+}
+
+.dd:last-of-type{
+
+}
+
+.member::after{
+    content: ', '
+}

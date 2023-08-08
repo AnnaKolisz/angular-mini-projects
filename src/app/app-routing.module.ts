@@ -7,6 +7,7 @@ import { ResizeComponent } from './components/resize/resize.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
 import { DataPortionComponent } from './components/data-portion/data-portion.component';
+import { SelectAutocompleteComponent } from './components/select-autocomplete/select-autocomplete.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,11 @@ const routes: Routes = [
     path: 'data-portion',
     component: DataPortionComponent,
     title: 'Data portion'
+  },
+  {
+    path: 'select_autocomplete',
+    component: SelectAutocompleteComponent,
+    title: 'Select with autocomplete'
   },
 ];
 

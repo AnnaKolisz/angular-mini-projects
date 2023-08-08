@@ -1,0 +1,60 @@
+<main class="ctn">
+  <mat-card class=" ctn__form">
+    <form [formGroup]="teamForm" class="forms" (ngSubmit)="onSubmit()">
+      <mat-form-field class="forms__50">
+        <mat-label>Choose team</mat-label>
+        <mat-select formControlName="name" required>
+          <mat-option *ngFor="let team of teamsSelect" [value]="team">
+            {{ team}}
+          </mat-option>
+        </mat-select>
+        <mat-error> This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="forms__50">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker" required >
+          <input matStartDate placeholder="Start date" formControlName="startDate" required >
+          <input matEndDate placeholder="End date" formControlName="endDate" required>
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+        <mat-error> This field is required</mat-error>
+      </mat-form-field>
+      <div class="forms__100 forms__height">
+        <mat-form-field>
+          <mat-label>Build a team</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Person selection" formControlName="members" required>
+            <mat-chip-row *ngFor="let user of chosenUsers" (removed)="remove(user)" [value]="user">
+              {{user.firstName}} {{user.lastName}}
+              <button matChipRemove [attr.aria-label]="'remove ' + user.lastName">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input placeholder="New Person..." #inputP [matChipInputFor]="chipGrid" [matAutocomplete]="auto" formControlName="filter"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)"  />
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let user of filteredUsers" [value]="user.id">
+              {{user.firstName}} {{user.lastName}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error  > This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="buttons forms__100">
+        <button mat-flat-button color="primary" type="submit">Submit</button>
+        <button mat-flat-button color="warn" type="button" (click)="clear()">Clear</button>
+      </div>
+    </form>
+  </mat-card>
+  <div class="ctn__items">
+
+    <mat-card *ngFor="let team of teams">
+  
+          <am-team-view-item [team]="team"></am-team-view-item>
+     
+    </mat-card>
+  </div>
+
+
+</main>

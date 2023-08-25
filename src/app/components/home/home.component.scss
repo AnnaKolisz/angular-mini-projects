@@ -55,12 +55,12 @@
     }
 
     li:hover h2 {
-        color: var(--pink-50);
+        color: var(--pink-800);
         opacity: 1;
     }
 
     li:hover:before{
-        background: var(--pink-200);
+        background: var(--pink-300);
         transition: all 0.3s ease-in-out;
     }
 

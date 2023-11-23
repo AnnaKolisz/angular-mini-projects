@@ -7,7 +7,7 @@
     <select #minute class="hourctn__select" formControlName="minute" matNativeControl (click)="$event.stopPropagation()">
         <option *ngFor="let min of minutes" [value]="min" class="hourctn__option">{{min}}</option>
     </select>
-    <button mat-icon-button  aria-label="Icon button with a heart icon" class="icon">
+    <button mat-icon-button  class="icon">
         <mat-icon class="btn_icon">query_builder</mat-icon>
       </button>
 </div>

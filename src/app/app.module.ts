@@ -19,12 +19,12 @@ import { SignaturePadComponent } from './components/signature-pad/signature-pad.
 import { TableScrollableComponent } from './components/shared/table-scrollable/table-scrollable.component';
 import { DataPortionComponent } from './components/data-portion/data-portion.component';
 import { TablePaginationComponent } from './components/shared/table-pagination/table-pagination.component';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
 import { TableVirtualComponent } from './components/shared/table-virtual/table-virtual.component';
 import { DateActionComponent } from './components/date-hour-pickers/date-action/date-action.component';
 import { SelectAutocompleteComponent } from './components/select-autocomplete/select-autocomplete.component';
 import { TeamViewItemComponent } from './components/select-autocomplete/team-view-item/team-view-item.component';
+import { MatdatepickerTimeComponent } from './components/date-hour-pickers/matdatepicker-time/matdatepicker-time.component';
+import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +42,12 @@ import { TeamViewItemComponent } from './components/select-autocomplete/team-vie
     TableScrollableComponent,
     DataPortionComponent,
     TablePaginationComponent,
-    InfiniteScrollComponent,
     TableVirtualComponent,
     DateActionComponent,
     SelectAutocompleteComponent,
-    TeamViewItemComponent
+    TeamViewItemComponent,
+    MatdatepickerTimeComponent,
+    InfiniteScrollComponent 
   ],
   imports: [
     BrowserModule,
@@ -56,7 +57,6 @@ import { TeamViewItemComponent } from './components/select-autocomplete/team-vie
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-   InfiniteScrollModule
   ],
   providers: [
    

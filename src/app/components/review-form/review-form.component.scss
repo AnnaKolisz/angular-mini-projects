@@ -3,5 +3,28 @@ main{
 }
 
 mat-card{
-    padding: 1rem 5rem;
+    padding: 0.5rem 5rem;
+}
+
+.infos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+    &__50{
+        flex: 1 1 49%;
+    }
+    &__100{
+        flex: 0 0 100%;
+    }
+
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card + mat-card{
+    margin-top: 1rem;
 }

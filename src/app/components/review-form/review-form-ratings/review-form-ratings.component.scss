@@ -1,58 +1,55 @@
 .rating {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 2em 0;
-    padding: 1em;
-    border-color: var(--teal-50);
-    border-radius: 5px;
-    legend{
-        font-size: 1.5em;
-        color: var(--teal-600);
-        padding: 0 .5em;
-        text-transform: uppercase;
-    }
-    &__ball {
-      position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1em 0;
+  padding: 1em;
+  border-color: var(--teal-50);
+  border-radius: 5px;
+
+  legend {
+    font-size: 1.5em;
+    color: var(--teal-600);
+    padding: 0 .5em;
+    text-transform: uppercase;
+  }
+
+  &__ball {
+    width: 56px;
+    height: 32px;
+
+    label {
+      display: inline-block;
       background-color: var(--teal-400);
       color: var(--orange-50);
-      width: 60px;
-      height: 60px;
-      padding: 15px;
-
+      width: 32px;
+      height: 32px;
+      font-size: 22px;
+      padding: 2px;
       border-radius: 50%;
-     
-      border: none;
-      transition: 0.3s;
-      label{
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 60px;
-          height: 60px;
-          padding: 18px;
-          border-radius: 50%;
-          font-size: 24px;
-          transform: translate(-50%, -50%);
-          text-align: center;
-          vertical-align: middle;
-          cursor: pointer;
+      transform: translate(-25%, -25%);
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--orange-400);
+        color: var(--teal-600);
 
       }
-      &:hover{
-          background-color: var(--orange-400);
-          color: var(--teal-600);
 
-      }
     }
-  }
 
-  [type='radio'] {
-    opacity: 0;
   }
+}
 
-  /* Use the sibling select */
-  [type='radio']:checked ~ label {
-    background: var(--pink-900);
-    color: var(--orange-50);
-  }
+
+
+[type='radio'] {
+ display: none;
+}
+
+/* Use the sibling select */
+[type='radio']:checked~label {
+  background: var(--pink-900);
+  color: var(--orange-50);
+}

@@ -1,7 +1,7 @@
 <fieldset class="rating">
     <legend>Select rate</legend>
     <div class="rating__ball" *ngFor="let rate of ratings">
-        <input type="radio" id="radio-{{rate}}" name="rating" [value]="rate"    [(ngModel)]="selectedRate"/>
-        <label for="radio-{{rate}}">{{rate}}</label>
+        <input type="radio" id="radio-{{rate}}" name="rating" [value]="rate" [(ngModel)]="selectedRate" (ngModelChange)="choose($event)"/>
+        <label  for="radio-{{rate}}">{{rate}}</label>
     </div>
 </fieldset>

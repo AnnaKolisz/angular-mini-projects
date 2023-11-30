@@ -33,5 +33,10 @@ export class ReviewFormRatingsComponent implements OnInit, ControlValueAccessor 
     throw new Error('Method not implemented.');
   }
 
+  choose(elo){
+   console.log(elo);
+   console.log(2, this.selectedRate);
+  }
+
 
 }

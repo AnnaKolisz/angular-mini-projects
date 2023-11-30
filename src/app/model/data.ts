@@ -45,3 +45,11 @@ export interface Team{
     endDate: Date;
     members: Person[];
 }
+
+export interface Review{
+    rate: number;
+    courseName: string;
+    name: string;
+    review: string;
+    dateOfReview: Date;
+}

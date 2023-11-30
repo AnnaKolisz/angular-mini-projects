@@ -1,6 +1,6 @@
 <main>
   <mat-card>
-    <form [formGroup]="comForm">
+    <form [formGroup]="revForm">
       <am-review-form-ratings></am-review-form-ratings>
       <div class="infos">
         <mat-form-field color="primary" class="infos__50">
@@ -21,7 +21,7 @@
         </mat-form-field>
         <mat-form-field class="infos__100">
           <mat-label>Review</mat-label>
-          <textarea matInput formControlName="comments"></textarea>
+          <textarea matInput formControlName="review"></textarea>
           
           <mat-error>This field is required</mat-error>
         </mat-form-field>
@@ -33,9 +33,9 @@
     </form>
   </mat-card>
   <mat-card>
-   Total score
+    <am-review-stats [reviews]="reviews"></am-review-stats>
   </mat-card>
   <mat-card>
-   
+   <am-review-list></am-review-list>
   </mat-card>
 </main>

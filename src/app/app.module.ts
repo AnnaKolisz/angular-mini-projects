@@ -25,6 +25,8 @@ import { SelectAutocompleteComponent } from './components/select-autocomplete/se
 import { TeamViewItemComponent } from './components/select-autocomplete/team-view-item/team-view-item.component';
 import { MatdatepickerTimeComponent } from './components/date-hour-pickers/matdatepicker-time/matdatepicker-time.component';
 import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
+import { ReviewStatsComponent } from './components/review-form/review-stats/review-stats.component';
+import { ReviewListComponent } from './components/review-form/review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { InfiniteScrollComponent } from './components/shared/infinite-scroll/inf
     SelectAutocompleteComponent,
     TeamViewItemComponent,
     MatdatepickerTimeComponent,
-    InfiniteScrollComponent 
+    InfiniteScrollComponent,
+    ReviewStatsComponent,
+    ReviewListComponent 
   ],
   imports: [
     BrowserModule,

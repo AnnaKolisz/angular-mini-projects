@@ -21,12 +21,12 @@
         </mat-form-field>
         <mat-form-field class="infos__100">
           <mat-label>Review</mat-label>
-          <textarea matInput formControlName="review"></textarea>
+          <textarea matInput formControlName="review" rows="1"></textarea>
           
           <mat-error>This field is required</mat-error>
         </mat-form-field>
         <div class="btns infos__100">
-          <button mat-flat-button color="accent" (click)="addReview()">Submit</button>
+          <button mat-flat-button color="accent" (click)="addReview()" type="button">Submit</button>
         </div>
       </div>
 

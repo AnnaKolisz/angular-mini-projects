@@ -18,24 +18,28 @@ export class ReviewFormRatingsComponent implements OnInit, ControlValueAccessor 
   ratings: number[];
   selectedRate: number;
 
+  onChange: any = () => {};
+  onTouch: any = () => {};
+
   constructor() { }
+
   ngOnInit(): void {
     this.ratings = [...Array(10)].map((item, index) => ++index);
   }
 
-  writeValue(obj: number): void {
-    throw new Error('Method not implemented.');
+  writeValue(value: number): void {
+    this.selectedRate = value;
   }
   registerOnChange(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onTouch = fn;
   }
 
-  choose(elo){
-   console.log(elo);
-   console.log(2, this.selectedRate);
+  updateValue(newValue: number): void {
+    this.onChange(newValue);
+    this.onTouch();
   }
 
 

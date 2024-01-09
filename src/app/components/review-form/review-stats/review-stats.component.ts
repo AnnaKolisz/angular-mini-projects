@@ -9,6 +9,9 @@ import { REVIEW_COURSES } from '../review-form.component';
 })
 export class ReviewStatsComponent {
 
+  //SIGNAALS
+  //https://medium.com/@KkambizZ/angular-16-signals-explained-with-five-examples-6b773a12c974
+
   allCourses = REVIEW_COURSES.map(courseName => ({ courseName, stat: null }));
   total: number
 

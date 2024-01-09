@@ -14,7 +14,7 @@ export class ReviewFormComponent implements OnInit {
   courses = REVIEW_COURSES;
 
   revForm = new FormGroup({
-    rate: new FormControl('', { nonNullable: true, validators: Validators.required }),
+    rate: new FormControl<number>(0, { nonNullable: true, validators: Validators.required }),
     courseName: new FormControl('', { nonNullable: true, validators: Validators.required }),
     name: new FormControl('', { nonNullable: true, validators: Validators.required }),
     review: new FormControl('', { nonNullable: true, validators: Validators.required })
@@ -28,7 +28,10 @@ export class ReviewFormComponent implements OnInit {
   }
 
   addReview() {
-    console.log(this.revForm)
+    console.log(this.revForm);
+    const value = <Review>this.revForm.getRawValue();
+    this.reviews.push(value);
+    this.revForm.reset();
   }
 
 }

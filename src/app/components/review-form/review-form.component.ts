@@ -28,7 +28,6 @@ export class ReviewFormComponent implements OnInit {
   }
 
   addReview() {
-    console.log(this.revForm);
     const value = <Review>this.revForm.getRawValue();
     this.reviews.push(value);
     this.revForm.reset();

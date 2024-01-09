@@ -8,6 +8,12 @@ import { Review } from 'src/app/model/data';
 })
 export class ReviewListComponent {
 
-  @Input() reviews: Review[] =  [];
+  listOfReviews: Review[] = [];
+
+  @Input() courses: string[]; //add as filter
+
+  @Input() set reviews(list : Review[]){
+    this.listOfReviews = list.sort((a, b) => new Date(a.dateOfReview).getTime() -  new Date(b.dateOfReview).getTime())
+  }
 
 }

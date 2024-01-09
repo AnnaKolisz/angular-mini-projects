@@ -1,0 +1,14 @@
+.review{
+    list-style-type: none;
+    border-bottom: 1px solid var(--teal-400);
+    &__course{
+        color: var(--teal-600)
+    }
+}
+
+ul{
+    margin: 0;
+    padding:  1rem;
+    height: 100%;
+    overflow: auto;
+}

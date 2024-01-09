@@ -1,1 +1,9 @@
-<p>review-list works!</p>
+<ul >
+    <li *ngFor=" let review of listOfReviews" class="review">
+        <h3 class="review__course"> {{ review.courseName }}</h3>
+        <p class="review__rate"> {{ review.rate }}/10</p>
+        <p> {{review.dateOfReview | date: "dd.MM.yyyy" }}</p>
+        <p class="review__text"> "{{review.review }}"</p>
+        <p class="review__author"> {{review.name }}</p>
+    </li>
+</ul>

@@ -1,5 +1,5 @@
-<main>
-  <mat-card>
+<main class="ctn">
+  <mat-card class="ctn__form">
     <form [formGroup]="revForm">
       <am-review-form-ratings></am-review-form-ratings>
       <div class="infos">
@@ -32,10 +32,10 @@
 
     </form>
   </mat-card>
-  <mat-card>
+  <mat-card class="ctn__stats">
     <am-review-stats [reviews]="reviews"></am-review-stats>
   </mat-card>
-  <mat-card>
-   <am-review-list></am-review-list>
+  <mat-card class="ctn__list">
+   <am-review-list [reviews]="reviews" [courses]="courses"></am-review-list>
   </mat-card>
 </main>

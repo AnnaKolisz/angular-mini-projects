@@ -81,10 +81,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-mini:build:production"
+              "buildTarget": "angular-mini:build:production"
             },
             "development": {
-              "browserTarget": "angular-mini:build:development"
+              "buildTarget": "angular-mini:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,7 +92,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-mini:build"
+            "buildTarget": "angular-mini:build"
           }
         },
         "test": {

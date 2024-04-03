@@ -9,10 +9,10 @@
 
 //  Available color palettes: https://material.io/design/color/
 $custom-primary: mat.define-palette(mat.$teal-palette, 300);
-$custom-accent: mat.define-palette(mat.$orange-palette, 400);
+$custom-accent: mat.define-palette(mat.$amber-palette, 400);
 
 // The warn palette is optional (defaults to red).
-$custom-warn: mat.define-palette(mat.$pink-palette, 900);
+$custom-warn: mat.define-palette(mat.$deep-orange-palette, 900);
 
 $custom-typography: mat.define-typography-config(
     $font-family: var(--main-font)

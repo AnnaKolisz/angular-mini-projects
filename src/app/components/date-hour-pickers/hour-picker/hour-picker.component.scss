@@ -1,56 +1,13 @@
-.hourctn {
-    width: inherit;
+div {
     display: flex;
-    gap: 5%;
-    padding: 0 5px;
-    &__select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        outline: none;
-        width: 45%;
-        opacity: 0;
-        transition: opacity 200ms;
-    }
-    &__input {
-        width: 35%;
-        opacity: 0;
-        transition: opacity 200ms;
-    }
-    .icon {
-        width: 24px;
-        height: 24px;
-        line-height: 0;
-    }
-    .btn_icon {
-        transform: scale(0.85);
-    }
-    &__option {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        font-size: 12px;
-        line-height: 1.5;
-        padding: 2rem 0;
-        text-align: center;
-    }
-}
+  }
+  input {
+    border: none;
+    background: none;
+    padding: 0;
+    outline: none;
+    font: inherit;
+    text-align: center;
+    color: currentColor;
+  }
 
-.spacer {
-    opacity: 0;
-    transition: opacity 200ms;
-}
-
-:host.example-floating .spacer {
-    opacity: 1;
-}
-
-:host.example-floating .hourctn__input {
-    opacity: 1;
-}
-
-:host.example-floating .hourctn__select {
-    opacity: 1;
-}

@@ -2,20 +2,25 @@
     <mat-card>
         <form class="overflow" [formGroup]="filForm">
             <table cdk-table [dataSource]="dataSource" class="tbl">
-                <ng-container *ngFor="let item of configColumns" cdkColumnDef="{{item.key}}">
+                @for (item of configColumns; track item) {
+                <ng-container cdkColumnDef="{{item.key}}">
                     <th cdk-header-cell *cdkHeaderCellDef> {{ item.show}} </th>
                     <td cdk-cell *cdkCellDef="let row"> {{row[item.key]}} </td>
                 </ng-container>
-                <ng-container *ngFor="let key of filteredColums" cdkColumnDef="{{key}}">
-                    <th cdk-header-cell *cdkHeaderCellDef>
-                        <div class="tbl__filter">
-                            <mat-icon class="icon">
-                                filter_alt
-                            </mat-icon>
-                            <input class="filter" formControlName="{{key.substring(5)}}">
-                        </div>
-                    </th>
-                </ng-container>
+                }
+                @for (key of filteredColums; track key){
+
+                    <ng-container  cdkColumnDef="{{key}}">
+                        <th cdk-header-cell *cdkHeaderCellDef>
+                            <div class="tbl__filter">
+                                <mat-icon class="icon">
+                                    filter_alt
+                                </mat-icon>
+                                <input class="filter" formControlName="{{key.substring(5)}}">
+                            </div>
+                        </th>
+                    </ng-container>
+                }
                 <!-- Header and Row Declarations -->
                 <tr cdk-header-row *cdkHeaderRowDef="displayedColumns" class="tbl__row-header"></tr>
                 <tr cdk-header-row *cdkHeaderRowDef="filteredColums" class="tbl__row-dark"> </tr>

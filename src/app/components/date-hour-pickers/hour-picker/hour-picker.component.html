@@ -1,13 +1,3 @@
-<div class="hourctn" [formGroup]="parts" role="group">
-    <select #hour class="hourctn__select" formControlName="hour" matNativeControl (click)="$event.stopPropagation()" >
-        <option *ngFor="let hour of hours" [value]="hour" class="hourctn__option">{{hour}}</option>
-    </select>
 
-    <span class="spacer"> :</span>
-    <select #minute class="hourctn__select" formControlName="minute" matNativeControl (click)="$event.stopPropagation()">
-        <option *ngFor="let min of minutes" [value]="min" class="hourctn__option">{{min}}</option>
-    </select>
-    <button mat-icon-button  class="icon">
-        <mat-icon class="btn_icon">query_builder</mat-icon>
-      </button>
-</div>
+
+

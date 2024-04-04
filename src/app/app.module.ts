@@ -27,6 +27,9 @@ import { MatdatepickerTimeComponent } from './components/date-hour-pickers/matda
 import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
 import { ReviewStatsComponent } from './components/review-form/review-stats/review-stats.component';
 import { ReviewListComponent } from './components/review-form/review-list/review-list.component';
+import { DirectiveModule } from './shared/directive/directive.module';
+import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour-picker-input.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import { ReviewListComponent } from './components/review-form/review-list/review
     MatdatepickerTimeComponent,
     InfiniteScrollComponent,
     ReviewStatsComponent,
-    ReviewListComponent 
+    ReviewListComponent,
+    HourPickerInput
+  
   ],
   imports: [
     BrowserModule,
@@ -61,6 +66,7 @@ import { ReviewListComponent } from './components/review-form/review-list/review
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DirectiveModule
   ],
   providers: [
    

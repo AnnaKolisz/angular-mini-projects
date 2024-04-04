@@ -6,13 +6,17 @@
             Start
           </span>
         </a></li>
-        <li *ngFor="let project of list$ | async"><a class="navigation__link" routerLink="{{project.link}}" routerLinkActive="active">
-          <mat-icon aria-hidden="false">{{project.icon}}</mat-icon>
-          <span>
-            {{ project.title}}
-          </span>
-          </a>
-        </li>
+        @for(project of list$ | async; track project){
+          <li >
+            <a class="navigation__link" routerLink="{{project.link}}" routerLinkActive="active">
+            <mat-icon aria-hidden="false">{{project.icon}}</mat-icon>
+            <span>
+              {{ project.title}}
+            </span>
+            </a>
+          </li>
+
+        }
 
     </ul>
   </nav>

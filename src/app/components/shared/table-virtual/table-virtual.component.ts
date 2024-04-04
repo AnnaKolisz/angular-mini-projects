@@ -1,7 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { Component, Input, NgZone, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 import { TableDataSource } from './table-data-source';
 

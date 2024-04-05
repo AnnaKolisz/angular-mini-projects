@@ -1,0 +1,51 @@
+div {
+  display: flex;
+}
+
+input {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+  color: currentColor;
+}
+
+
+
+.times {
+  width: 210px;
+
+  input {
+    width: 2.5rem;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      padding: 0;
+      border: none;
+      cursor: pointer;
+
+      mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 22px;
+
+      }
+    }
+  }
+
+  span, .times__btns {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+
+  :host.floating span, .times__btns {
+    opacity: 1;
+  }
+
+}

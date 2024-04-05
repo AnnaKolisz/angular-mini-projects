@@ -1,7 +1,9 @@
-import { Component, ElementRef, HostBinding, Input, OnDestroy, Optional, Self } from "@angular/core";
-import {  ControlValueAccessor, FormControl, FormGroup, NgControl } from "@angular/forms";
-import { MatFormFieldControl } from "@angular/material/form-field";
-import {  Subject } from "rxjs";
+import { FocusMonitor } from "@angular/cdk/a11y";
+import { BooleanInput, coerceBooleanProperty } from "@angular/cdk/coercion";
+import { Component, ElementRef, HostBinding, Inject, Input, OnDestroy, Optional, Self, ViewChild } from "@angular/core";
+import { AbstractControl, ControlValueAccessor, FormBuilder, FormControl, FormGroup, NgControl, Validators } from "@angular/forms";
+import { MatFormField, MatFormFieldControl, MAT_FORM_FIELD } from "@angular/material/form-field";
+import { Subject } from "rxjs";
 
 export class HourMinuteSec {
   constructor(public hour: string, public minute: string, public second: string) { }
@@ -9,69 +11,54 @@ export class HourMinuteSec {
 
 @Component({
   selector: 'am-hour-picker-input',
-  template: `
-    <div role="group" [formGroup]="timeForm">
-        <input  type="text" maxlength="2" onlyNumbers formControlName="hour" >
-        <div>
-            <button (click)="add('hour')"> < </button>
-            <button (click)="substract('hour')"> > </button>
-        </div>
-        <span>:</span>
-        <input  type="text" maxlength="2" formControlName="minute" >
-        <span>:</span>
-        <input type="text"  maxlength="2" formControlName="second">
-
-    </div>
-    `,
-  styleUrls: ['./hour-picker.component.scss'],
+  templateUrl: './hour-picker-input.component.html',
+  styleUrls: ['./hour-picker-input.component.scss'],
   providers: [{ provide: MatFormFieldControl, useExisting: HourPickerInput }],
+  host: {
+    '[class.example-floating]': 'shouldLabelFloat',
+    '[id]': 'id',
+  },
 })
 export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinuteSec>, ControlValueAccessor {
 
-
+  static nextId = 0;
+  @ViewChild('tHour') hourInput: HTMLInputElement;
+  @ViewChild('tMinute') minuteInput: HTMLInputElement;
+  @ViewChild('tSecond') secondInput: HTMLInputElement;
+  timeForm: FormGroup<{
+    hour: FormControl<string>;
+    minute: FormControl<string>;
+    second: FormControl<string>;
+  }>;
   stateChanges = new Subject<void>();
-
   focused: boolean = false;
   touched = false;
-  empty: boolean;
-  shouldLabelFloat: boolean;
-  required: boolean;
-  disabled: boolean;
-  errorState: boolean;
-  controlType?: string;
+  controlType = "times-input"
   autofilled?: boolean;
   userAriaDescribedBy?: string;
-  onChange = (_: any) => {};
-  onTouched = () => {};
-
-
-
-  hours: string[];
-  minutes: string[];
-
-  timeForm = new FormGroup({
-    hour: new FormControl('00'),
-    minute: new FormControl('00'),
-    second: new FormControl('00')
-  })
+  onChange = (_: any) => { };
+  onTouched = () => { };
+  maxHour = 23;
+  maxMinSec = 59;
 
   @Input()
   get value(): HourMinuteSec {
-    let n = this.timeForm.value;
-    return <HourMinuteSec>n;
-    // if (n.area.length == 3 && n.exchange.length == 3 && n.subscriber.length == 4) {
-    //   return new MyTel(n.area, n.exchange, n.subscriber);
-    // }
-    // return null;
+    if (this.timeForm.valid) {
+      const {
+        value: { hour, minute, second },
+      } = this.timeForm;
+      return new HourMinuteSec(hour!, minute!, second!);
+    }
+    return null;
   }
   set value(val: HourMinuteSec | null) {
-    val = val || new HourMinuteSec('', '', '');
-    this.timeForm.setValue({ ...val });
+    const { hour, minute, second } = val || new HourMinuteSec('', '', '');
+    this.timeForm.setValue({ hour, minute, second });
     this.stateChanges.next();
   }
-  static nextId = 0;
-  @HostBinding()
-  id = `hour-input-${HourPickerInput.nextId++}`;
+
+
+  id = `times-input-${HourPickerInput.nextId++}`;
   @Input()
   get placeholder() {
     return this._placeholder;
@@ -82,38 +69,91 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
   }
   private _placeholder: string;
 
+  @Input()
+  get required(): boolean {
+    return this._required;
+  }
+  set required(req: BooleanInput) { //BooaleanInput
+    this._required = coerceBooleanProperty(req);
+    this.stateChanges.next();
+  }
+  private _required = false;
+
+  @Input()
+  get disabled(): boolean { return this._disabled; }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+    this._disabled ? this.timeForm.disable() : this.timeForm.enable();
+    this.stateChanges.next();
+  }
+  private _disabled = false;
+
+  get empty() {
+    const { hour, minute, second } = this.timeForm.value;
+    return !hour && !minute && !second;
+  }
+
+  get shouldLabelFloat() {
+    return this.focused || !this.empty;
+  }
+
   constructor(
-    @Optional() @Self() public ngControl: NgControl,
+    formBuilder: FormBuilder,
+    private _focusMonitor: FocusMonitor,
     private _elementRef: ElementRef<HTMLElement>,
-  ) { 
+    @Optional() @Inject(MAT_FORM_FIELD) public _formField: MatFormField,
+    @Optional() @Self() public ngControl: NgControl,
+  ) {
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
     }
+    this.timeForm = formBuilder.group({
+      hour: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+      minute: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+      second: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+    });
   }
 
+  get errorState(): boolean {
+    return this.timeForm.invalid && this.touched;
+  }
 
-  writeValue(obj: any): void {
-    throw new Error("Method not implemented.");
+  writeValue(time: HourMinuteSec | null): void {
+    this.value = time;
   }
   registerOnChange(fn: any): void {
-    throw new Error("Method not implemented.");
+    this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    throw new Error("Method not implemented.");
+    this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error("Method not implemented.");
+    this.disabled = isDisabled;
+  }
+
+  _handleInput(control: AbstractControl,  max: number): void {
+  //   const val = control.value;
+  //   console.log(val);
+  //   console.log(control)
+  //  const valNum = Number(val);
+  //  if(valNum <= 0 || valNum > max){
+  //   control.setValue('00')
+  //  }
+
+  //   this.onChange(this.value);
+  console.log(control.value);
   }
 
   ngOnDestroy() {
     this.stateChanges.complete();
+    this._focusMonitor.stopMonitoring(this._elementRef);
   }
 
   setDescribedByIds(ids: string[]): void {
-    throw new Error('Method not implemented.');
+
   }
   onContainerClick(event: MouseEvent): void {
-    throw new Error('Method not implemented.');
+
   }
 
 
@@ -123,7 +163,7 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
       this.stateChanges.next();
     }
   }
-  
+
   onFocusOut(event: FocusEvent) {
     if (!this._elementRef.nativeElement.contains(event.relatedTarget as Element)) {
       this.touched = true;
@@ -133,26 +173,62 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
     }
   }
 
+  autoFocusNext(control: AbstractControl, nextElement?: HTMLInputElement): void {
+    console.log(control);
+    if ( nextElement) {
+      this._focusMonitor.focusVia(nextElement, 'program');
+    }
+  }
+
+  autoFocusPrev(control: AbstractControl, prevElement: HTMLInputElement): void {
+    console.log('check', control.value)
+    if (control.value.length < 1) {
+      this._focusMonitor.focusVia(prevElement, 'program');
+    }
+  }
+
 
   // -----------my methods
 
 
-  add(controlName: string) {
-    let val = Number(this.timeForm.get(controlName).value);
+  add(max: number, control: AbstractControl) {
+    let val = Number(control.value);
 
     val++;
-    this.timeForm.patchValue({ [controlName]: val })
+    if(val <= max){
+      control.setValue( this.string00(val) )
+
+    } else {
+      control.setValue( '00' )
+    }
 
 
   }
 
-  substract(controlName: string) {
-    let val = Number(this.timeForm.get(controlName).value);
+  substract(max: number, control: AbstractControl) {
+    let val = Number(control.value);
 
-    val++;
-    this.timeForm.patchValue({ [controlName]: val })
+    val--; 
+    if(val >= 1){
+      control.setValue( this.string00(val) )
+
+    } else {
+      control.setValue( '00' )
+    }
 
 
+  }
+
+  check00(control: AbstractControl){
+    control.setValue( this.string00(control.value) );
+  }
+
+  string00(val: number | string){
+    let valStr = String(val);
+    if(valStr.length === 1){
+      valStr = `0${valStr}`;
+    }
+    return valStr;
   }
 
 }

@@ -1,0 +1,34 @@
+<div role="group" [formGroup]="timeForm" class="times"
+
+     (focusin)="onFocusIn($event)"
+     (focusout)="onFocusOut($event)"
+>
+  <input  type="text" maxlength="2" onlyNumbers  formControlName="hour" #tHour
+  (input)="_handleInput(timeForm.controls.hour,  maxHour)"
+  (keydown.space)="autoFocusNext(timeForm.controls.minute, tMinute); check00(timeForm.controls.hour)"
+  >
+  <div class="times__btns">
+      <button (click)="add(maxHour, timeForm.controls.hour)"> 	<mat-icon >keyboard_arrow_up</mat-icon></button>
+      <button (click)="substract(maxHour, timeForm.controls.hour)"> 	<mat-icon >keyboard_arrow_down</mat-icon> </button>
+  </div>
+  <!-- <span>:</span> -->
+  <input  type="text" maxlength="2"  onlyNumbers formControlName="minute" #tMinute
+  (input)="_handleInput(timeForm.controls.minute,  maxMinSec)"
+  (keydown.space)="autoFocusNext(timeForm.controls.second, tSecond); check00(timeForm.controls.minute)"
+  (keydown.backspace)="autoFocusPrev(timeForm.controls.minute, tHour)"
+  >
+  <div class="times__btns">
+      <button (click)="add(maxMinSec, timeForm.controls.minute)"> 	<mat-icon>keyboard_arrow_up</mat-icon></button>
+      <button (click)="substract(maxMinSec, timeForm.controls.minute)"> <mat-icon>keyboard_arrow_down</mat-icon> </button>
+  </div>
+  <!-- <span>:</span> -->
+  <input type="text"  maxlength="2"  onlyNumbers  formControlName="second" #tSecond
+  (input)="_handleInput(timeForm.controls.second, maxMinSec)"
+         (keydown.backspace)="autoFocusPrev(timeForm.controls.second, tMinute)"
+  >
+  <div class="times__btns">
+      <button (click)="add(maxMinSec, timeForm.controls.second)">	<mat-icon>keyboard_arrow_up</mat-icon></button>
+      <button (click)="substract(maxMinSec, timeForm.controls.second)"> <mat-icon>keyboard_arrow_down</mat-icon> </button>
+  </div>
+
+</div>

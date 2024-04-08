@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { HourMinuteSec } from './hour-picker-input.component';
 
 @Component({
   selector: 'am-hour-picker',
@@ -18,11 +19,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class HourPickerComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
-    times: new FormControl(null),
+    times: new FormControl<HourMinuteSec>(null),
   });
 
   ngOnInit(): void {
-    this.form.valueChanges.subscribe(res => console.log(`%c${res.hour}`, "color: green, font-size: 24px"));
+    this.form.valueChanges.subscribe(res => console.log(`%c${res}`, "color: green, font-size: 24px"));
   }
 
 

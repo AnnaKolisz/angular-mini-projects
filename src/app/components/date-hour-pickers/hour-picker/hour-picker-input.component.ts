@@ -132,16 +132,9 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
   }
 
   _handleInput(control: AbstractControl,  max: number): void {
-  //   const val = control.value;
-  //   console.log(val);
-  //   console.log(control)
-  //  const valNum = Number(val);
-  //  if(valNum <= 0 || valNum > max){
-  //   control.setValue('00')
-  //  }
-
-  //   this.onChange(this.value);
-  console.log(control.value);
+  const valNum = Number(control.value) >= max ? control.value : String(max);
+  control.setValue(valNum)
+  this.onChange(this.value);
   }
 
   ngOnDestroy() {
@@ -174,14 +167,12 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
   }
 
   autoFocusNext(control: AbstractControl, nextElement?: HTMLInputElement): void {
-    console.log(control);
     if ( nextElement) {
       this._focusMonitor.focusVia(nextElement, 'program');
     }
   }
 
   autoFocusPrev(control: AbstractControl, prevElement: HTMLInputElement): void {
-    console.log('check', control.value)
     if (control.value.length < 1) {
       this._focusMonitor.focusVia(prevElement, 'program');
     }
@@ -193,30 +184,22 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
 
   add(max: number, control: AbstractControl) {
     let val = Number(control.value);
-
     val++;
     if(val <= max){
       control.setValue( this.string00(val) )
-
     } else {
       control.setValue( '00' )
     }
-
-
   }
 
   substract(max: number, control: AbstractControl) {
     let val = Number(control.value);
-
     val--; 
     if(val >= 1){
       control.setValue( this.string00(val) )
-
     } else {
       control.setValue( '00' )
     }
-
-
   }
 
   check00(control: AbstractControl){

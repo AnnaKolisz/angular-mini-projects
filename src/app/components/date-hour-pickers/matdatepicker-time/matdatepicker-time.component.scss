@@ -1,7 +1,22 @@
-.mdc-text-field__input::-webkit-calendar-picker-indicator {
-    display: block !important;
+.fly {
+    background-color: #fff;
+    padding: .5rem;
+    width: 17rem;
+    box-shadow:  0px 1px 20px 1px var(--teal-50);
+
+    &__under{
+        display: flex;
+        justify-content: center;
+        padding: 1.5rem;
+        am-hour-picker-input{
+            box-shadow:  -5px 10px 20px -10px var(--teal-50);
+        }
+    } 
+    
 }
 
-.demo-inline-calendar-card {
-    width: 300px;
-  } 
+.btns{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+}

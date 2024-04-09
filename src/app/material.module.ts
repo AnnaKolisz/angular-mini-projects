@@ -20,6 +20,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { OverlayModule } from "@angular/cdk/overlay";
 
 
 export const MY_FORMATS = {
@@ -29,7 +30,7 @@ export const MY_FORMATS = {
   display: {
     dateInput: 'DD.MM.YYYY',
     monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
+    dateA11yLabel: 'DD.MM.YYYY',
     monthYearA11yLabel: 'MMMM YYYY',
   },
 };
@@ -56,6 +57,7 @@ const modules = [
   MatTabsModule,
   MatTableModule,
   MatToolbarModule,
+  OverlayModule
 
 ]
 

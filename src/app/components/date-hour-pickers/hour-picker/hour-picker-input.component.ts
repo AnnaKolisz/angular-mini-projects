@@ -131,10 +131,12 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
     this.disabled = isDisabled;
   }
 
-  _handleInput(control: AbstractControl,  max: number): void {
-  const valNum = Number(control.value) >= max ? control.value : String(max);
-  control.setValue(valNum)
-  this.onChange(this.value);
+  _handleInput(control: AbstractControl, max: number): void {
+    const valNum = Number(control.value) <= max ? control.value : String(max);
+    console.log(valNum);
+
+    control.setValue(valNum)
+    this.onChange(this.value);
   }
 
   ngOnDestroy() {
@@ -167,7 +169,7 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
   }
 
   autoFocusNext(control: AbstractControl, nextElement?: HTMLInputElement): void {
-    if ( nextElement) {
+    if (nextElement) {
       this._focusMonitor.focusVia(nextElement, 'program');
     }
   }
@@ -185,30 +187,30 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
   add(max: number, control: AbstractControl) {
     let val = Number(control.value);
     val++;
-    if(val <= max){
-      control.setValue( this.string00(val) )
+    if (val <= max) {
+      control.setValue(this.string00(val))
     } else {
-      control.setValue( '00' )
+      control.setValue('00')
     }
   }
 
   substract(max: number, control: AbstractControl) {
     let val = Number(control.value);
-    val--; 
-    if(val >= 1){
-      control.setValue( this.string00(val) )
+    val--;
+    if (val >= 1) {
+      control.setValue(this.string00(val))
     } else {
-      control.setValue( '00' )
+      control.setValue('00')
     }
   }
 
-  check00(control: AbstractControl){
-    control.setValue( this.string00(control.value) );
+  check00(control: AbstractControl) {
+    control.setValue(this.string00(control.value));
   }
 
-  string00(val: number | string){
+  string00(val: number | string) {
     let valStr = String(val);
-    if(valStr.length === 1){
+    if (valStr.length === 1) {
       valStr = `0${valStr}`;
     }
     return valStr;

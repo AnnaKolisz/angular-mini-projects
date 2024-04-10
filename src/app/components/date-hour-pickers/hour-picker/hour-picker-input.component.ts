@@ -119,6 +119,7 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
   }
 
   writeValue(time: HourMinuteSec | null): void {
+
     this.value = time;
   }
   registerOnChange(fn: any): void {
@@ -133,10 +134,10 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
 
   _handleInput(control: AbstractControl, max: number): void {
     const valNum = Number(control.value) <= max ? control.value : String(max);
-    console.log(valNum);
-
-    control.setValue(valNum)
+    
+    control.setValue(valNum);
     this.onChange(this.value);
+    
   }
 
   ngOnDestroy() {
@@ -187,33 +188,28 @@ export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinut
   add(max: number, control: AbstractControl) {
     let val = Number(control.value);
     val++;
-    if (val <= max) {
-      control.setValue(this.string00(val))
-    } else {
-      control.setValue('00')
-    }
+    val <= max ?  control.setValue(this.string00(val)) :  control.setValue('00');
+    this.stateChanges.next();
+    this.onChange(this.value);
   }
 
   substract(max: number, control: AbstractControl) {
     let val = Number(control.value);
     val--;
-    if (val >= 1) {
-      control.setValue(this.string00(val))
-    } else {
-      control.setValue('00')
-    }
+    (val >= 1) ? control.setValue(this.string00(val)) : control.setValue(String(max));
+    this.stateChanges.next();
+    this.onChange(this.value);
   }
 
   check00(control: AbstractControl) {
     control.setValue(this.string00(control.value));
+    this.stateChanges.next();
+    this.onChange(this.value);
   }
 
   string00(val: number | string) {
     let valStr = String(val);
-    if (valStr.length === 1) {
-      valStr = `0${valStr}`;
-    }
-    return valStr;
+    return valStr.padStart(2, '0');
   }
 
 }

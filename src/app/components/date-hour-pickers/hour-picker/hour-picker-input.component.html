@@ -25,6 +25,8 @@
   <input type="text"  maxlength="2"  onlyNumbers  formControlName="second" #tSecond
   (input)="_handleInput(timeForm.controls.second, maxMinSec)"
          (keydown.backspace)="autoFocusPrev(timeForm.controls.second, tMinute)"
+         (keydown.space)="check00(timeForm.controls.second)"
+
   >
   <div class="times__btns">
       <button (click)="add(maxMinSec, timeForm.controls.second)">	<mat-icon>keyboard_arrow_up</mat-icon></button>

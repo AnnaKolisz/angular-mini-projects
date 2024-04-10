@@ -1,12 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, provideMomentDateAdapter } from '@angular/material-moment-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import {  provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import * as _moment from 'moment';
 import { Moment } from 'moment';
 import { filter, Subject, takeUntil } from 'rxjs';
-
-
 
 export const MY_FORMATy= {
   parse: {
@@ -25,19 +22,10 @@ export const MY_FORMATy= {
   templateUrl: './matdatepicker-time.component.html',
   styleUrls: ['./matdatepicker-time.component.scss'],
   providers: [
-    // Moment can be provided globally to your app by adding `provideMomentDateAdapter`
-    // to your app config. We provide it at the component level here, due to limitations
-    // of our example generation script.
    provideMomentDateAdapter(MY_FORMATy),
-    // {
-    //   provide: DateAdapter,
-    //   useClass: MomentDateAdapter,
-    //   deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
-    // },
-    // { provide: MAT_DATE_FORMATS, useValue: MY_FORMATy },
   ],
 })
-export class MatdatepickerTimeComponent {
+export class MatdatepickerTimeComponent implements OnDestroy, OnInit  {
 
   showCalendar = false;
   dateTime;

@@ -12,6 +12,7 @@ import { HourMinuteSec } from './hour-picker-input.component';
           <am-hour-picker-input formControlName="times"></am-hour-picker-input>
         </mat-form-field>
     </div>
+    <pre> {{ timy | json }}</pre>
 `,
   styles: [],
 
@@ -21,6 +22,10 @@ export class HourPickerComponent implements OnInit {
   form: FormGroup = new FormGroup({
     times: new FormControl<HourMinuteSec>(null),
   });
+
+  get timy(){
+    return this.form.get('times').value
+  }
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe(res => console.log(`%c${res}`, "color: green, font-size: 24px"));

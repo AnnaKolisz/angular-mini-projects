@@ -1,8 +1,11 @@
 //@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&family=Seymour+One&display=swap');
+
 
 :root {
-    --main-font: Lato, "Comic Sans", sans-serif;
+    --main-font: Raleway, "Comic Sans", sans-serif;
+    --funky-font: Seymour One, "Comic Sans", sans-serif;
     --pink-50: #FCE4EC;
     --pink-100: #F8BBD0;
     --pink-200: #F48FB1;

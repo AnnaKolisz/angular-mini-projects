@@ -11,7 +11,8 @@ import { Component } from '@angular/core';
       state('topX', style({
         transform: 'rotate(45deg)', 
         transformOrigin: 'left',
-        margin: '4px'
+        width: '48px'
+      
       })),
       state('hide', style({
         opacity: 0
@@ -19,7 +20,8 @@ import { Component } from '@angular/core';
       state('bottomX', style({
         transform: 'rotate(-45deg)',
         transformOrigin: 'left',
-        margin: '4px'
+        width: '48px'
+ 
       })),
       transition('* => *', [
         animate('0.2s')

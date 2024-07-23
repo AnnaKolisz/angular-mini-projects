@@ -2,13 +2,16 @@
     <!-- <p>Stop telling yourself you're not qualified, not worthy or not experienced enough</p>
     <p>Growth happens when you start doing things you're not qualified to do</p>   -->
     <ul class="list">
-        <li *ngFor="let project of list$ | async, let i = index">
+        @for(project of list$ | async; track project; let i = $index){
+        <li class="list__item " [routerLink]="project.link">
 
-
-            <p>{{i+1}}</p>
             <h2>{{ project.title }}</h2>
             <p>{{ project.description }}</p>
-            <a [routerLink]="project.link">Link</a>
+
+            <mat-icon class="icon"> arrow_forward </mat-icon>
+
         </li>
+
+        }
     </ul>
 </div>

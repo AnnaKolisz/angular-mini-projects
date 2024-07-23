@@ -9,11 +9,11 @@
     --pink-50: #FCE4EC;
     --pink-100: #F8BBD0;
     --pink-200: #F48FB1;
-   --pink-300: #F06292;
-   --pink-400: #EC407A;
-   --pink-500: #E91E63;
-   --pink-600: #D81B60;
-   --pink-800: #AD1457;
+    --pink-300: #F06292;
+    --pink-400: #EC407A;
+    --pink-500: #E91E63;
+    --pink-600: #D81B60;
+    --pink-800: #AD1457;
     --pink-900: #880e4f;
     --orange-50: #FFF3E0;
     --orange-100: #FFE0B2;
@@ -32,6 +32,7 @@
     --teal-600: #00897B;
     --teal-700: #00796B;
     --teal-900: #004D40;
+    --amber-very-light: #fffcf3;
     --amber-50: #FFF8E1;
     --main-color-font: #263238;
     box-sizing: border-box;
@@ -49,7 +50,10 @@ body {
     font-size: 16px;
 }
 
-body { margin: 0; font-family: var(--main-font) }
+body {
+    margin: 0;
+    font-family: var(--main-font)
+}
 
 //https://coolors.co/713e5a-4db6ac-edc79b
 //https://coolors.co/ffbc42-4db6ac-cc2936

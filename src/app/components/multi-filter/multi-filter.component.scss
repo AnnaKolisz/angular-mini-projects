@@ -1,13 +1,15 @@
 .ctn {
     padding: 1rem;
 }
+
 mat-card {
     padding: 1rem;
 }
 
 .overflow {
-    height: calc(100vh - 130px);
+    height: calc(100vh - 9.375rem);
     overflow: auto;
+    padding-right: 1rem;
 }
 
 .tbl {
@@ -16,16 +18,20 @@ mat-card {
     border-spacing: 0;
     font-size: .875rem;
     position: relative;
+
     td {
         border-bottom: 1px solid var(--teal-100);
         padding: .5rem .5rem .5rem 2rem;
     }
+
     &__row {
         text-align: left;
     }
+
     &__row-header {
         text-align: left;
         height: 50px;
+
         th {
             top: 0;
             background-color: white;
@@ -36,9 +42,11 @@ mat-card {
             padding: .5rem 0.5rem 0 2rem;
         }
     }
+
     &__row-dark {
         text-align: left;
         height: 40px;
+
         th {
             top: 50px;
             background-color: white;
@@ -48,24 +56,28 @@ mat-card {
             padding: 0 0.5rem 0.5rem 0;
         }
     }
+
     &__filter {
         display: flex;
         align-items: center;
+
         .icon {
 
             color: var(--teal-700);
         }
+
         .filter {
             margin-left: 0.375rem;
             border-radius: 10px;
             border: none;
             height: 24px;
             width: 100%;
-            &:focus{
+
+            &:focus {
                 // box-shadow: var(--teal-100) 0px 5px 10px 15px;
-                box-shadow: 10px 15px 15px  -5px var(--teal-50);
+                box-shadow: 10px 15px 15px -5px var(--teal-50);
                 outline: none;
-              //  background-color: rgba(178,223,219,0.2); ;
+                //  background-color: rgba(178,223,219,0.2); ;
             }
         }
     }

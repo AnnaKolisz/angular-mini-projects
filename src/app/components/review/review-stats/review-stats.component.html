@@ -1,14 +1,15 @@
 <h2> Total score {{ total}} /10</h2>
 
-
 <dl>
-    <ng-container *ngFor="let course of allCourses">
+    <ng-container>
+        @for (course of allCourses; track course) {
         <dt>
             {{ course.courseName}}
         </dt>
         <dd>
-            {{ course.stat || '-'}}
+            {{ course.stat ?? '-'}}
         </dd>
+        }
     </ng-container>
 
 </dl>

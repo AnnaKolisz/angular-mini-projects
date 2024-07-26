@@ -1,0 +1,30 @@
+.infos {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 1%;
+    height: 160px;
+
+    &__50 {
+        flex: 1 1 49%;
+    }
+
+    &__100 {
+        flex: 0 0 100%;
+    }
+
+    &__textarea {
+        width: calc(100% - 350px);
+    }
+
+}
+
+.btns {
+    position: relative;
+    width: 85px;
+
+    button {
+        position: absolute;
+        left: 0;
+        bottom: 24px;
+    }
+}

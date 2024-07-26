@@ -7,12 +7,10 @@ import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
-import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { MultiFilterComponent } from './components/multi-filter/multi-filter.component';
 import { DateHourPickersComponent } from './components/date-hour-pickers/date-hour-pickers.component';
 import { HourPickerComponent } from './components/date-hour-pickers/hour-picker/hour-picker.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { ReviewFormRatingsComponent } from './components/review-form/review-form-ratings/review-form-ratings.component';
 import { ResizeComponent } from './components/resize/resize.component';
 import { TableComponent } from './components/shared/table/table.component';
 import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
@@ -25,8 +23,6 @@ import { SelectAutocompleteComponent } from './components/select-autocomplete/se
 import { TeamViewItemComponent } from './components/select-autocomplete/team-view-item/team-view-item.component';
 import { MatdatepickerTimeComponent } from './components/date-hour-pickers/matdatepicker-time/matdatepicker-time.component';
 import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
-import { ReviewStatsComponent } from './components/review-form/review-stats/review-stats.component';
-import { ReviewListComponent } from './components/review-form/review-list/review-list.component';
 import { DirectiveModule } from './shared/directive/directive.module';
 import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour-picker-input.component';
 
@@ -35,12 +31,10 @@ import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour
   declarations: [
     AppComponent,
     HomeComponent,
-   DateHourPickersComponent,
-   HourPickerComponent,
+    DateHourPickersComponent,
+    HourPickerComponent,
     MultiFilterComponent,
-    ReviewFormComponent,
     MenuComponent,
-    ReviewFormRatingsComponent,
     ResizeComponent,
     TableComponent,
     SignaturePadComponent,
@@ -53,10 +47,8 @@ import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour
     TeamViewItemComponent,
     MatdatepickerTimeComponent,
     InfiniteScrollComponent,
-    ReviewStatsComponent,
-    ReviewListComponent,
     HourPickerInput
-  
+
   ],
   imports: [
     BrowserModule,
@@ -69,9 +61,9 @@ import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour
     DirectiveModule
   ],
   providers: [
-   
+
   ],
   bootstrap: [AppComponent],
-  
+
 })
 export class AppModule { }

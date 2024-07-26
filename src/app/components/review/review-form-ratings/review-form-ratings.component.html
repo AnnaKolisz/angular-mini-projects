@@ -1,0 +1,11 @@
+<fieldset class="rating">
+    <legend>Select rate</legend>
+    @for (rate of ratings; track rate) {
+    <div class="rating__ball">
+        <input type="radio" id="radio-{{rate}}" name="rating" [value]="rate" [(ngModel)]="selectedRate"
+            (ngModelChange)="updateValue($event)" />
+        <label for="radio-{{rate}}">{{rate}}</label>
+    </div>
+
+    }
+</fieldset>

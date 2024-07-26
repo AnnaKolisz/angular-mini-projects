@@ -4,10 +4,10 @@ import { DateHourPickersComponent } from './components/date-hour-pickers/date-ho
 import { HomeComponent } from './components/home/home.component';
 import { MultiFilterComponent } from './components/multi-filter/multi-filter.component';
 import { ResizeComponent } from './components/resize/resize.component';
-import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { SignaturePadComponent } from './components/signature-pad/signature-pad.component';
 import { DataPortionComponent } from './components/data-portion/data-portion.component';
 import { SelectAutocompleteComponent } from './components/select-autocomplete/select-autocomplete.component';
+import { ReviewComponent } from './components/review/review.component';
 
 
 const routes: Routes = [
@@ -22,10 +22,10 @@ const routes: Routes = [
     component: MultiFilterComponent,
     title: 'Multi-filter'
   },
-   
+
   {
     path: 'review',
-    component: ReviewFormComponent,
+    component: ReviewComponent,
     title: 'Review'
   },
   {

@@ -1,0 +1,31 @@
+.ctn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+    padding: 1rem;
+
+    &__form {
+        flex: 0 0 60%;
+    }
+
+    &__stats {
+        flex: 0 0 39%;
+    }
+
+    &__list {
+        flex: 0 0 100%;
+
+        am-review-list {
+            height: calc(100vh - 490px);
+
+        }
+    }
+}
+
+mat-card {
+    padding: 0.5rem 2.5rem 0.75rem;
+}
+
+mat-card+mat-card {
+    margin-top: 1rem;
+}

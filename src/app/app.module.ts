@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { MultiFilterComponent } from './components/multi-filter/multi-filter.component';
 import { DateHourPickersComponent } from './components/date-hour-pickers/date-hour-pickers.component';
@@ -27,43 +27,34 @@ import { DirectiveModule } from './shared/directive/directive.module';
 import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour-picker-input.component';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    DateHourPickersComponent,
-    HourPickerComponent,
-    MultiFilterComponent,
-    MenuComponent,
-    ResizeComponent,
-    TableComponent,
-    SignaturePadComponent,
-    TableScrollableComponent,
-    DataPortionComponent,
-    TablePaginationComponent,
-    TableVirtualComponent,
-    DateActionComponent,
-    SelectAutocompleteComponent,
-    TeamViewItemComponent,
-    MatdatepickerTimeComponent,
-    InfiniteScrollComponent,
-    HourPickerInput
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    DirectiveModule
-  ],
-  providers: [
-
-  ],
-  bootstrap: [AppComponent],
-
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        DateHourPickersComponent,
+        HourPickerComponent,
+        MultiFilterComponent,
+        MenuComponent,
+        ResizeComponent,
+        TableComponent,
+        SignaturePadComponent,
+        TableScrollableComponent,
+        DataPortionComponent,
+        TablePaginationComponent,
+        TableVirtualComponent,
+        DateActionComponent,
+        SelectAutocompleteComponent,
+        TeamViewItemComponent,
+        MatdatepickerTimeComponent,
+        InfiniteScrollComponent,
+        HourPickerInput
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DirectiveModule], providers: [
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

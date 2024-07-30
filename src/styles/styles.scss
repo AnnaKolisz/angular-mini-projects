@@ -4,8 +4,15 @@
 
 
 :root {
+    box-sizing: border-box;
     --main-font: Raleway, "Comic Sans", sans-serif;
     --funky-font: Seymour One, "Comic Sans", sans-serif;
+
+
+
+
+
+
     --pink-50: #FCE4EC;
     --pink-100: #F8BBD0;
     --pink-200: #F48FB1;
@@ -35,7 +42,6 @@
     --amber-very-light: #fffcf3;
     --amber-50: #FFF8E1;
     --main-color-font: #263238;
-    box-sizing: border-box;
 }
 
 *,
@@ -54,6 +60,12 @@ body {
     margin: 0;
     font-family: var(--main-font)
 }
+
+
+
+
+
+
 
 
 //https://coolors.co/009688-ffc107-61c284-f44336-607d8b-9e9e9e

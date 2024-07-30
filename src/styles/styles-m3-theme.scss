@@ -4,10 +4,10 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 
+
 // Note: Color palettes are generated from primary: #009688, secondary: #ffc107, tertiary: #61c284, neutral: #607d8b
 $_palettes: (
-  primary: (
-    0: #000000,
+  primary: (0: #000000,
     10: #00201c,
     20: #003731,
     25: #00443d,
@@ -24,8 +24,7 @@ $_palettes: (
     99: #f2fffb,
     100: #ffffff,
   ),
-  secondary: (
-    0: #000000,
+  secondary: (0: #000000,
     10: #261a00,
     20: #3f2e00,
     25: #4d3800,
@@ -42,8 +41,7 @@ $_palettes: (
     99: #fffbff,
     100: #ffffff,
   ),
-  tertiary: (
-    0: #000000,
+  tertiary: (0: #000000,
     10: #00210e,
     20: #00391c,
     25: #004524,
@@ -60,8 +58,7 @@ $_palettes: (
     99: #f5fff3,
     100: #ffffff,
   ),
-  neutral: (
-    0: #000000,
+  neutral: (0: #000000,
     4: #000c11,
     6: #001319,
     10: #001f2a,
@@ -88,8 +85,7 @@ $_palettes: (
     99: #fafcff,
     100: #ffffff,
   ),
-  neutral-variant: (
-    0: #000000,
+  neutral-variant: (0: #000000,
     10: #141d1c,
     20: #293230,
     25: #343d3b,
@@ -106,8 +102,7 @@ $_palettes: (
     99: #f4fffb,
     100: #ffffff,
   ),
-  error: (
-    0: #000000,
+  error: (0: #000000,
     10: #410002,
     20: #690005,
     25: #7e0007,
@@ -129,31 +124,25 @@ $_palettes: (
 $_rest: (
   secondary: map.get($_palettes, secondary),
   neutral: map.get($_palettes, neutral),
-  neutral-variant: map.get($_palettes,  neutral-variant),
+  neutral-variant: map.get($_palettes, neutral-variant),
   error: map.get($_palettes, error),
 );
 $_primary: map.merge(map.get($_palettes, primary), $_rest);
 $_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
 
-$light-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: $_primary,
-    tertiary: $_tertiary,
-    use-system-variables: true,
-  ),
-  typography: (
-    use-system-variables: true,
-  ),
-));
-$dark-theme: mat.define-theme((
-  color: (
-    theme-type: dark,
-    primary: $_primary,
-    tertiary: $_tertiary,
-    use-system-variables: true,
-  ),
-  typography: (
-    use-system-variables: true,
-  ),
-));
+$light-theme: mat.define-theme((color: (theme-type: light,
+        primary: $_primary,
+        tertiary: $_tertiary,
+        use-system-variables: true,
+      ),
+      typography: (use-system-variables: true,
+      ),
+    ));
+$dark-theme: mat.define-theme((color: (theme-type: dark,
+        primary: $_primary,
+        tertiary: $_tertiary,
+        use-system-variables: true,
+      ),
+      typography: (use-system-variables: true,
+      ),
+    ));

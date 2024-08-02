@@ -1,6 +1,6 @@
 <ul>
     <li class="review">
-        @for (review of listOfReviews; track review) {
+        @for (review of reviews(); track review) {
         <h3 class="review__course"> {{ review.courseName }}</h3>
         <p class="review__rate"> {{ review.rate }}/10</p>
         <p> {{review.dateOfReview | date: "dd.MM.yyyy" }}</p>

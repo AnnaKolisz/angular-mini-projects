@@ -1,7 +1,7 @@
 .ctn {
     display: flex;
     flex-wrap: wrap;
-    gap: 1%;
+    gap: 1rem;
     padding: 1rem;
 
     &__form {
@@ -16,7 +16,7 @@
         flex: 0 0 100%;
 
         am-review-list {
-            height: calc(100vh - 490px);
+            height: calc(100vh - 460px);
 
         }
     }
@@ -24,8 +24,5 @@
 
 mat-card {
     padding: 0.5rem 2.5rem 0.75rem;
-}
-
-mat-card+mat-card {
-    margin-top: 1rem;
+    background-color: var(--background-color);
 }

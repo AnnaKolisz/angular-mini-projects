@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+        text-transform: uppercase;
+        flex: 1 1 70%;
+    }
+
+    p {
+        flex: 1 1 20%;
+    }
+}
+
+.stat {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2% 1%;
+
+    dt {
+        flex: 1 1 70%;
+    }
+
+    dd {
+        flex: 1 1 20%;
+        margin: 0;
+    }
+}

@@ -4,12 +4,12 @@
   justify-content: space-around;
   margin: 1em 0;
   padding: 1em;
-  border-color: var(--teal-50);
+  border-color: blue;
   border-radius: 5px;
 
   legend {
     font-size: 1.5em;
-    color: var(--teal-600);
+    color: blue;
     padding: 0 .5em;
     text-transform: uppercase;
   }
@@ -20,8 +20,8 @@
 
     label {
       display: inline-block;
-      background-color: var(--teal-400);
-      color: var(--orange-50);
+      //   background-color: blue;
+      //    color: var(--orange-50);
       width: 32px;
       height: 32px;
       font-size: 22px;
@@ -32,8 +32,8 @@
       cursor: pointer;
 
       &:hover {
-        background-color: var(--orange-400);
-        color: var(--teal-600);
+        // background-color: var(--orange-400);
+        // color: blue;
 
       }
 
@@ -45,11 +45,11 @@
 
 
 [type='radio'] {
- display: none;
+  display: none;
 }
 
 /* Use the sibling select */
 [type='radio']:checked~label {
-  background: var(--pink-900);
-  color: var(--orange-50);
+  background: var(--pink-10);
+  // color: var(--orange-50);
 }

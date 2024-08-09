@@ -1,15 +1,18 @@
-<h2> Total score {{ total}} /10</h2>
+<div class="header">
+    <h2> Total score </h2>
+    <p class="header__stats">{{ total}} / 10</p>
 
-<dl>
-    <ng-container>
-        @for (course of allCourses; track course) {
-        <dt>
-            {{ course.courseName}}
-        </dt>
-        <dd>
-            {{ course.stat ?? '-'}}
-        </dd>
-        }
-    </ng-container>
+</div>
+
+<dl class="stat">
+
+    @for (course of allCourses; track course) {
+    <dt>
+        {{ course.courseName}}
+    </dt>
+    <dd>
+        {{ course.stat ?? '-'}} / 10
+    </dd>
+    }
 
 </dl>

@@ -2,20 +2,21 @@
     background-color: #fff;
     padding: .5rem;
     width: 17rem;
-    box-shadow:  0px 1px 20px 1px var(--teal-50);
+    box-shadow: 0px 1px 20px 1px blue;
 
-    &__under{
+    &__under {
         display: flex;
         justify-content: center;
         padding: 1.5rem;
-        am-hour-picker-input{
-            box-shadow:  -5px 10px 20px -10px var(--teal-50);
+
+        am-hour-picker-input {
+            box-shadow: -5px 10px 20px -10px blue;
         }
-    } 
-    
+    }
+
 }
 
-.btns{
+.btns {
     display: flex;
     justify-content: space-evenly;
     padding-bottom: 1rem;

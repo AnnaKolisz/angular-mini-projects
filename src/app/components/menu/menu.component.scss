@@ -1,28 +1,34 @@
-.navigation{
+.navigation {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 2em;
     padding: 0 24px;
-    li{
-        list-style: none;      
-        padding-bottom: 4px; 
-        height: 32px; 
-        &:hover{
-            border-bottom: 1px solid var(--teal-300); 
+
+    li {
+        list-style: none;
+        padding-bottom: 4px;
+        height: 32px;
+
+        &:hover {
+            border-bottom: 1px solid blue;
         }
-        &:active{
-            border-bottom: 1px solid var(--teal-300); 
+
+        &:active {
+            border-bottom: 1px solid blue;
         }
     }
-    &__link{
-        color: var(--teal-600);
+
+    &__link {
+        color: blue;
         font-size: 1.25em;
-        text-decoration: none;   
-        mat-icon, span{
+        text-decoration: none;
+
+        mat-icon,
+        span {
             vertical-align: middle;
         }
 
-     
+
     }
 }

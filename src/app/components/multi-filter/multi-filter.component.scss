@@ -20,7 +20,7 @@ mat-card {
     position: relative;
 
     td {
-        border-bottom: 1px solid var(--teal-100);
+        border-bottom: 1px solid blue;
         padding: .5rem .5rem .5rem 2rem;
     }
 
@@ -38,7 +38,7 @@ mat-card {
             position: sticky;
             z-index: 10;
             text-transform: uppercase;
-            color: var(--teal-600);
+            color: blue;
             padding: .5rem 0.5rem 0 2rem;
         }
     }
@@ -52,7 +52,7 @@ mat-card {
             background-color: white;
             position: sticky;
             z-index: 10;
-            border-bottom: 2px double var(--teal-700);
+            border-bottom: 2px double blue;
             padding: 0 0.5rem 0.5rem 0;
         }
     }
@@ -63,7 +63,7 @@ mat-card {
 
         .icon {
 
-            color: var(--teal-700);
+            color: blue;
         }
 
         .filter {
@@ -75,7 +75,7 @@ mat-card {
 
             &:focus {
                 // box-shadow: var(--teal-100) 0px 5px 10px 15px;
-                box-shadow: 10px 15px 15px -5px var(--teal-50);
+                box-shadow: 10px 15px 15px -5px blue;
                 outline: none;
                 //  background-color: rgba(178,223,219,0.2); ;
             }

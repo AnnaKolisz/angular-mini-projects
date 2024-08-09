@@ -1,46 +1,55 @@
-@mixin table{
+@mixin table {
     width: 100%;
-    border-collapse: separate; /* I don't use collapse because I need border */
+    border-collapse: separate;
+    /* I don't use collapse because I need border */
     border-spacing: 0;
-    font-size: 16px; 
+    font-size: 16px;
     font-family: var(--main-font);
     position: relative;
-    thead th{
+
+    thead th {
         top: 0;
         background-color: white;
-        position: sticky; 
-        z-index: 10; 
+        position: sticky;
+        z-index: 10;
     }
-    th{
-        padding: 9px 24px 9px 0px;  
-        border-bottom: 2px solid var(--teal-900);
+
+    th {
+        padding: 9px 24px 9px 0px;
+        border-bottom: 2px solid blue;
         background-color: white;
     }
-    td{
-        border-bottom: 1px solid var(--teal-100);
-        padding: 9px 24px 9px 0px; 
+
+    td {
+        border-bottom: 1px solid blue;
+        padding: 9px 24px 9px 0px;
     }
-    &__row{
+
+    &__row {
         text-align: left;
-      
-    }  
-    &__row-header{
+
+    }
+
+    &__row-header {
         background-color: white;
-        border-bottom: 1px solid var(--teal-900);
+        border-bottom: 1px solid blue;
         text-align: left;
         height: 50px;
     }
 }
 
-@mixin linky{
-    color: var(--orange-700);
-    &:active{
-        color: var(--orange-900);
+@mixin linky {
+    color: var(--keppel-30);
+
+    &:active {
+        color: var(--keppel-80);
     }
-    &:hover{
-        color: var(--pink-400);
+
+    &:hover {
+        color: var(--pink-70);
     }
-    &:visited{
-        color: var(--pink-600);
+
+    &:visited {
+        color: var(--pink-40);
     }
 }

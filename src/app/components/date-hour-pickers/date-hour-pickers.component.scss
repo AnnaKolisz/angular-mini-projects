@@ -1,22 +1,25 @@
-.ctn{
+.ctn {
     padding: 1rem;
-    &__card{
+
+    &__card {
         margin-bottom: 1rem;
     }
 }
 
-mat-card-title{
-    color: var(--teal-900);
+mat-card-title {
+    color: blue;
     padding: 1rem 2rem;
-    border-bottom: 1px solid var(--teal-600);
+    border-bottom: 1px solid blue;
 }
-mat-card-content{
-    padding: 1rem 2rem; 
-    p{
+
+mat-card-content {
+    padding: 1rem 2rem;
+
+    p {
         margin-top: 0
     }
 }
 
-.kuki{
+.kuki {
     margin-left: 2rem;
 }

@@ -1,17 +1,18 @@
 .main {
     padding: 0.5rem 1.25rem;
+
     h2 {
         margin-left: 4rem;
         margin-top: 0;
-        color: var(--teal-900);
+        color: blue;
     }
 }
 
 .info {
     padding-left: 4rem;
     padding-top: 0.5rem;
-    background-color: var(--teal-50);
-    border-bottom: 3px solid var(--pink-600);
+    background-color: var(blue);
+    //   border-bottom: 3px solid var(--pink-600);
 }
 
 .tabs {

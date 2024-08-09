@@ -1,50 +1,52 @@
-
-.team{
+.team {
     padding: 1rem;
-    &__panel{
-        border-bottom: 3px double var(--teal-300);
+
+    &__panel {
+        border-bottom: 3px double blue;
         padding: 0 1rem;
         display: flex;
         justify-content: space-between;
-        h3{
+
+        h3 {
             text-transform: uppercase;
-            color: var(--teal-600);
+            color: blue;
         }
 
     }
 }
 
-.list{
+.list {
     padding: 0 1rem;
     display: grid;
     grid-template-columns: 80px 120px 80px 120px;
     gap: 2rem 2.5rem;
-    &__members{
-        width: 280px;;
+
+    &__members {
+        width: 280px;
+        ;
     }
 }
 
-dt{
-    
+dt {
+
     font-weight: bold;
-    color: var(--orange-500);
-    &::after{
+    //  color: var(--orange-500);
+
+    &::after {
         content: ":";
     }
-} 
+}
 
-dd{
+dd {
     margin: 0;
 }
 
-dt:last-of-type{
-    color: var(--pink-500); 
+dt:last-of-type {
+    color: var(--pink-60);
 }
 
-.dd:last-of-type{
+.dd:last-of-type {}
 
-}
-
-.member::after{
+.member::after {
     content: ', '
 }

@@ -13,5 +13,5 @@ export const  CONFIG_COLUMNS = [
 ]
 
 export const COLUMNS = [
-    'firstName', 'lastName', 'email', 'country', 'city',   'company','department', 'jobTitle', 'language', 'gender'
+    'firstName', 'lastName', 'email', 'country', 'city',   'company','department', 'jobTitle', 'language'
 ]

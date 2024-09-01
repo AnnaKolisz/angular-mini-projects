@@ -11,16 +11,16 @@
         height: 32px;
 
         &:hover {
-            border-bottom: 1px solid blue;
+            border-bottom: 1px solid var(--main-color-font-title);
         }
 
         &:active {
-            border-bottom: 1px solid blue;
+            border-bottom: 1px solid var(--pink-40);
         }
     }
 
     &__link {
-        color: blue;
+        color: var(--main-color-font-title);
         font-size: 1.25em;
         text-decoration: none;
 

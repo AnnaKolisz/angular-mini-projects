@@ -1,30 +1,43 @@
 @import 'mixins';
 
-main {
-    padding: 1rem;
-}
 
 .ctn {
-    width: 605px;
-    margin: 0 auto;
+    
+
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    &__item{
+        flex: 0 0 50%;
+        padding: 1rem;
+        canvas {
+            background-color: #fff;
+            border: 2px solid blue;
+        }
+        
+        img {
+            border: 2px solid blue;
+            width: 600px;
+            height: 300px;
+            background-color: var(--orange-50);
+        }
+    }
+    &__buttons{
+        flex: 0 0  100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
 }
 
 .source {
     width: 100%;
 
-    h1,
-    h3 {
+    h1 {
         text-align: center;
-        color: blue;
+        color: var(--main-color-font-title)
     }
 
-    h3 {
-        margin-bottom: 5px;
-    }
 
     a {
         display: block;
@@ -32,29 +45,6 @@ main {
     }
 }
 
-canvas {
-    background-color: #fff;
-    border: 2px solid blue;
-}
-
-.buttons {
-    padding: 1rem;
-
-    button+button {
-        margin-left: 2rem;
-    }
-
-    button:first-of-type {
-        color: #FFF3E0;
-    }
-}
-
-img {
-    border: 2px solid blue;
-    width: 600px;
-    height: 300px;
-    background-color: var(--orange-50);
-}
 
 p {
     align-self: flex-start;

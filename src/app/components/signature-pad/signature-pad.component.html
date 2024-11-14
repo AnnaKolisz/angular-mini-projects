@@ -1,27 +1,27 @@
-
 <section class="source">
-    <h1> Signature Pad</h1>    
-    <a href="https://itnext.io/make-a-signing-pad-in-angular-vanilla-js-7a3eb7e0599d" target="_blank" class="link"> Link to
+    <h1> Signature Pad</h1>
+    <a href="https://itnext.io/make-a-signing-pad-in-angular-vanilla-js-7a3eb7e0599d" target="_blank" class="link"> Link
+        to
         tutorial </a>
-        
+
 </section>
-    <article class="ctn">
-        <div class="ctn__item">
+<div class="ctn" #ctn>
+    <div class="ctn__item">
 
-            <p>Start drawing</p>
-            <canvas (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)" (touchmove)="onMouseMove($event)"
-                (touchstart)="onMouseDown($event)" #signPad width="600" height="300" placeholder="Start drawing" >
-            </canvas>
-            
-        </div>
-        <div class="ctn__item">
-            
-            <p>Results</p>
-            <img  src="{{signatureImg}}" alt="" [ngClass]="signatureImg || 'not-found'" >
-        </div>
-        <div class="ctn__buttons">
+        <p>Start drawing</p>
+        <canvas (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)" (touchmove)="onMouseMove($event)"
+            (touchstart)="onMouseDown($event)" #canvas placeholder="Start drawing">
+        </canvas>
 
-            <button mat-flat-button color="primary" (click)="saveSignature()">Save</button>
-            <button mat-flat-button color="accent" (click)="clearSignature()">Clear</button>
-        </div>
-    </article>
+    </div>
+    <div class="ctn__item">
+
+        <p>Results</p>
+        <img src="{{signatureImg}}" alt="" [ngClass]="signatureImg || 'not-found'">
+    </div>
+    <div class="ctn__buttons">
+
+        <button mat-flat-button color="primary" (click)="saveSignature()">Save</button>
+        <button mat-flat-button color="accent" (click)="clearSignature()">Clear</button>
+    </div>
+</div>

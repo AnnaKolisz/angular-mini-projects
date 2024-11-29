@@ -1,7 +1,5 @@
 <form [formGroup]="revForm" class="infos">
-  <!-- <am-review-form-ratings formControlName="review"></am-review-form-ratings> -->
-
-  <am-review-form-star class="infos__30"></am-review-form-star>
+  <am-review-form-star class="infos__30" formControlName="rate"></am-review-form-star>
   <mat-form-field color="primary" class="infos__30">
     <mat-label>Choose course</mat-label>
     <mat-select formControlName="courseName">

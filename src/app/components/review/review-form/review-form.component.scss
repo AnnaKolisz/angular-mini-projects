@@ -1,8 +1,12 @@
 .infos {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     gap: 1%;
-    height: 160px;
+    height: 100%;
+
+    &__30 {
+        flex: 1 1 32%;
+    }
 
     &__50 {
         flex: 1 1 49%;
@@ -13,18 +17,12 @@
     }
 
     &__textarea {
-        width: calc(100% - 350px);
+        // width: calc(100% - 350px);
     }
 
 }
 
 .btns {
-    position: relative;
-    width: 85px;
-
-    button {
-        position: absolute;
-        left: 0;
-        bottom: 24px;
-    }
+    display: flex;
+    justify-content: center;
 }

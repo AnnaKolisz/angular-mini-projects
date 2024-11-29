@@ -17,13 +17,12 @@ export class ReviewStatsComponent {
   total: number
 
   @Input() set reviews(reviews: Review[]) {
-    console.log(reviews);
     this.total = reviews.reduce((a, c) => a + c.rate, 0) / reviews.length;
     this.allCourses.forEach(course => {
       const arr = reviews.filter(item => item.courseName === course.courseName);
       course.stat = arr.reduce((a, c) => a + c.rate, 0) / arr.length;
     });
-    console.log(this.allCourses)
+
   }
 
 }

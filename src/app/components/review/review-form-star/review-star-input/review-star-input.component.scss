@@ -1,0 +1,20 @@
+.rating-container {
+    display: flex;
+}
+
+.star {
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 200ms;
+    font-size: 24px;
+    color: var(--pink-35);
+}
+
+.star.filled {
+    color: var(--pink-35);
+}
+
+
+:host.floating .star {
+    opacity: 1;
+}

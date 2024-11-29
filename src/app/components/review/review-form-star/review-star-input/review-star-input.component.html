@@ -1,0 +1,5 @@
+<div class="rating-container" (focusin)="onFocusIn()" (focusout)="onFocusOut($event)" tabindex="0">
+    <mat-icon *ngFor="let star of stars; let i = index" (click)="setRating(i)" class="star" [class.filled]="star">
+        {{ star ? 'star' : 'star_border' }}
+    </mat-icon>
+</div>

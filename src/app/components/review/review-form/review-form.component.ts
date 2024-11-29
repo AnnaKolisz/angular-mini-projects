@@ -3,13 +3,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MaterialModule } from 'src/app/material.module';
 import { Review } from 'src/app/model/data';
 import { ReviewFormRatingsComponent } from '../review-form-ratings/review-form-ratings.component';
+import { ReviewFormStarComponent } from '../review-form-star/review-form-star.component';
 
 @Component({
   selector: 'am-review-form',
   templateUrl: './review-form.component.html',
   styleUrls: ['./review-form.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, MaterialModule, ReviewFormRatingsComponent]
+  imports: [ReactiveFormsModule, MaterialModule, ReviewFormStarComponent]
 })
 export class ReviewFormComponent {
 

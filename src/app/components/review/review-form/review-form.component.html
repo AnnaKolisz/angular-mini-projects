@@ -1,34 +1,35 @@
-<form [formGroup]="revForm">
-  <am-review-form-ratings formControlName="review"></am-review-form-ratings>
-  <div class="infos">
-    <mat-form-field color="primary" class="infos__50">
-      <mat-label>Choose course</mat-label>
-      <mat-select formControlName="courseName">
-        @for (course of courses; track course) {
-        <mat-option [value]="course">
-          {{course}}
-        </mat-option>
+<form [formGroup]="revForm" class="infos">
+  <!-- <am-review-form-ratings formControlName="review"></am-review-form-ratings> -->
+
+  <am-review-form-star class="infos__30"></am-review-form-star>
+  <mat-form-field color="primary" class="infos__30">
+    <mat-label>Choose course</mat-label>
+    <mat-select formControlName="courseName">
+      @for (course of courses; track course) {
+      <mat-option [value]="course">
+        {{course}}
+      </mat-option>
 
 
-        }
-      </mat-select>
+      }
+    </mat-select>
 
-      <mat-error>This field is required</mat-error>
-    </mat-form-field>
-    <mat-form-field class="infos__50">
-      <mat-label>Your name</mat-label>
-      <input matInput formControlName="name">
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+  <mat-form-field class="infos__30">
+    <mat-label>Your name</mat-label>
+    <input matInput formControlName="name">
 
-      <mat-error>This field is required</mat-error>
-    </mat-form-field>
-    <mat-form-field class="infos__100 infos__textarea">
-      <mat-label>Review</mat-label>
-      <textarea matInput formControlName="review" rows="1"></textarea>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+  <mat-form-field class="infos__100 infos__textarea">
+    <mat-label>Review</mat-label>
+    <textarea matInput formControlName="review" rows="1"></textarea>
 
-      <mat-error>This field is required</mat-error>
-    </mat-form-field>
-    <div class="btns infos__100">
-      <button mat-flat-button color="accent" (click)="addReview()" type="button">Submit</button>
-    </div>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+  <div class="btns infos__100">
+    <button mat-flat-button color="accent" (click)="addReview()" type="button">Submit</button>
   </div>
+
 </form>

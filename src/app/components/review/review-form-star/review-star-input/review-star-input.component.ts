@@ -114,7 +114,6 @@ export class ReviewStarInputComponent implements ControlValueAccessor, MatFormFi
 
   updateStars() {
     this.stars = this.stars.map((_, index) => index < this.value);
-    console.log(this.stars);
   }
 
   setRating(index: number) {

@@ -5,8 +5,7 @@
     padding: 1rem;
 
     &__form {
-        flex: 0 0 100%;
-        height: 220px;
+        flex: 0 0 60%;
     }
 
     &__stats {
@@ -14,7 +13,7 @@
     }
 
     &__list {
-        flex: 0 0 60%;
+        flex: 0 0 100%;
 
         am-review-list {
             height: calc(100vh - 460px);
@@ -24,7 +23,7 @@
 }
 
 mat-card {
-    padding: 0.5rem 1.75rem 0.75rem;
+    padding: 1rem 1.75rem;
     // background-color: var(--background-color-card);
 }
 

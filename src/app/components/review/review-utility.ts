@@ -2,21 +2,21 @@ export const REVIEW_COURSES = ["Intermadiate HTML & CSS", "Javascript - hard par
 
 export const REVIEW_INITIAL_DATA = [
     {
-        rate: 8,
+        rate: 4,
         courseName: REVIEW_COURSES[0],
         name: 'David',
         review: 'I learned a lot! The instructor is a very good teacher,  I enjoyed the course, the jokes, the projects, challenges.',
         dateOfReview: new Date(2023, 10, 17)
     },
     {
-        rate: 9,
+        rate: 5,
         courseName: REVIEW_COURSES[1],
         name: 'Anna',
         review: 'I love the course. It\'s pretty complete and the instructor does a great job explaining complex concepts in JavaScript.',
         dateOfReview: new Date(2023, 10, 17)
     },
     {
-        rate: 7,
+        rate: 3,
         courseName: REVIEW_COURSES[2],
         name: 'John',
         review: 'It is little outdated, but still you can learn sth',

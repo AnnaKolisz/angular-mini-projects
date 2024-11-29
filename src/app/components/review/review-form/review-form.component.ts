@@ -28,7 +28,8 @@ export class ReviewFormComponent {
 
   addReview() {
     const value = <Review>this.revForm.getRawValue();
-    // this.reviews = [... this.reviews, value];
+    console.log(value);
+    //   this.reviews = [... this.reviews, value];
     this.revForm.reset();
   }
 

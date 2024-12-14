@@ -1,6 +1,6 @@
 <div class="header">
     <h2> Total score </h2>
-    <p class="header__stats">{{ total}} / 10</p>
+    <p class="header__stats">{{ total}} / 5</p>
 
 </div>
 
@@ -10,8 +10,12 @@
     <dt>
         {{ course.courseName}}
     </dt>
-    <dd>
-        {{ course.stat ?? '-'}} / 10
+    <dd [ngClass]="{
+        'low-stat': course.stat < 2,
+        'medium-stat': course.stat >= 2 && course.stat < 4,
+        'high-stat': course.stat >= 4
+    }">
+        {{ course.stat || '-'}} / 5
     </dd>
     }
 

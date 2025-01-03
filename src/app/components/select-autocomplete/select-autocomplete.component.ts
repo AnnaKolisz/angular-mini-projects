@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { filter, map, startWith, tap } from 'rxjs/operators';
-import { Person, Team } from 'src/app/model/data';
+import { ConfigTable, Person, Team } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -15,25 +15,26 @@ import { Subscription } from 'rxjs';
 })
 export class SelectAutocompleteComponent {
 
+  // Pomysł na autocomplete: Validacja aby było tylko trzy osoby, lista autocomplete jest disable
+  // Tabela z jakimś fajnym filtrem
+  // można dodać gantt
+
   sub$: Subscription;
-  teamsSelect = ['Team Yellow', 'Team Blue', 'Team Red'];
+  teamsSelect = MOCK_TEAM_SELECT;
   allUsers: Person[];
   chosenUsers: Person[] = [];
   filteredUsers: Person[] = [];
   separatorKeysCodes: number[] = [ENTER, COMMA];
   @ViewChild('inputP') inputField: ElementRef<HTMLInputElement>;
-  teams: Team[] = [{
-    name: 'Team Yellow', startDate: new Date(), endDate: new Date(), members: [
-      { id: 2, firstName: 'Carine', lastName: 'Stobbe' },
-      { id: 6, firstName: 'Reynolds', lastName: 'Chelnam' }]
-  }];
+  teams: Team[] = MOCK_TEAM;
   teamForm = new FormGroup({
-    name: new FormControl('', { nonNullable: true, validators: Validators.required }),
+    name: new FormControl(null, { validators: Validators.required }),
     startDate: new FormControl<Date | null>(null, { nonNullable: true, validators: Validators.required }),
     endDate: new FormControl<Date | null>(null, { nonNullable: true, validators: Validators.required }),
     members: new FormControl<Person[]>([], { nonNullable: true, validators: Validators.required }),
     filter: new FormControl<string>('')
   });
+  headers = ["Team Name", "Start date", "End date", "Team members", "Action"]
 
   constructor(
     private dataService: DataService,
@@ -41,7 +42,7 @@ export class SelectAutocompleteComponent {
 
   ngOnInit(): void {
     this.dataService.getData200().pipe(
-      map(items => items.slice(0, 50).map(({ id, firstName, lastName }) => ({ id, firstName, lastName, combinedName: `${lastName} ${firstName}` })))
+      map(items => items.slice(0, 25).map(({ id, firstName, lastName }) => ({ id, firstName, lastName, combinedName: `${lastName} ${firstName}` })))
     ).subscribe(
       items => {
         this.allUsers = items;
@@ -60,16 +61,8 @@ export class SelectAutocompleteComponent {
   }
 
   add(event: MatChipInputEvent): void {
-    console.log('add', event);
     const value = (event.value || '').trim();
-    // if (value) {
-    //   this.chosenUsers.push(value);
-    // }
-
-    // // Clear the input value
     event.chipInput!.clear();
-
-    // this.fruitCtrl.setValue(null);
   }
 
   remove(person: Person): void {
@@ -93,7 +86,6 @@ export class SelectAutocompleteComponent {
 
   onChanges() {
     this.sub$ = this.teamForm.get('filter').valueChanges.pipe(
-      tap(item => console.log(item)),
       startWith(null),
       filter(item => !Number.isInteger(item)),
       map((searchValue: any | null) => (searchValue ? this._filter(searchValue) : this.getFiltredWorkers())),
@@ -127,3 +119,32 @@ export class SelectAutocompleteComponent {
   }
 
 }
+
+const MOCK_TEAM_SELECT = [
+  { name: 'Team Yellow', hexColor: '#FAC05E' }, { name: 'Team Blue', hexColor: '#2B98CA' }, { name: 'Team Red', hexColor: '#D64933' }
+];
+const MOCK_TEAM_YELLOW = MOCK_TEAM_SELECT[0];
+const MOCK_TEAM_BLUE = MOCK_TEAM_SELECT[1];
+const MOCK_TEAM_RED = MOCK_TEAM_SELECT[2];
+
+
+const MOCK_TEAM = [
+  {
+    name: MOCK_TEAM_YELLOW, startDate: new Date(2025, 0, 3), endDate: new Date(2025, 0, 6), members: [
+      { id: 2, firstName: 'Carine', lastName: 'Stobbe' },
+      { id: 6, firstName: 'Reynolds', lastName: 'Chelnam' }]
+  },
+  {
+    name: MOCK_TEAM_BLUE, startDate: new Date(2025, 0, 4), endDate: new Date(2025, 0, 13), members: [
+      { id: 22, firstName: 'Barbey', lastName: 'Bonar' },
+      { id: 26, firstName: 'Aggy', lastName: 'Laxson' }]
+  },
+  {
+
+    name: MOCK_TEAM_RED, startDate: new Date(2025, 0, 23), endDate: new Date(2025, 0, 26), members: [
+      { id: 2, firstName: 'Carine', lastName: 'Stobbe' },
+      { id: 6, firstName: 'Reynolds', lastName: 'Chelnam' }
+    ]
+  }
+];
+

@@ -13,10 +13,10 @@ export interface Employee {
     country: string;
 }
 
-export interface Person{
+export interface Person {
     id: number;
     firstName: string;
-    lastName: string; 
+    lastName: string;
     combinedName?: string;
 }
 
@@ -27,7 +27,7 @@ export interface Project {
     icon: string;
 }
 
-export interface ConfigTable{
+export interface ConfigTable {
     key: string;
     type?: string;
     link?: string;
@@ -39,14 +39,14 @@ export interface KeyTitle {
     title: string;
 }
 
-export interface Team{
-    name: string;
+export interface Team {
+    name: { name: string, hexColor: string }
     startDate: Date;
     endDate: Date;
     members: Person[];
 }
 
-export interface Review{
+export interface Review {
     rate: number;
     courseName: string;
     name: string;

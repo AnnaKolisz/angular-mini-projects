@@ -16,13 +16,18 @@
 
     th {
         padding: 9px 24px 9px 0px;
-        border-bottom: 2px solid blue;
+        border-bottom: 2px solid var(--keppel-60);
         background-color: white;
     }
 
+
     td {
-        border-bottom: 1px solid blue;
+        border-bottom: 1px solid var(--cadet-grey-80);
         padding: 9px 24px 9px 0px;
+    }
+
+    td:last-of-type {
+        border-bottom: none;
     }
 
     &__row {
@@ -31,8 +36,6 @@
     }
 
     &__row-header {
-        background-color: white;
-        border-bottom: 1px solid blue;
         text-align: left;
         height: 50px;
     }

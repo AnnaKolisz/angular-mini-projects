@@ -1,59 +1,94 @@
 <main class="ctn">
   <mat-card class=" ctn__form">
     <form [formGroup]="teamForm" class="forms" (ngSubmit)="onSubmit()">
-      <mat-form-field class="forms__50">
+      <mat-form-field class="forms__small">
         <mat-label>Choose team</mat-label>
         <mat-select formControlName="name" required>
           <mat-option *ngFor="let team of teamsSelect" [value]="team">
-            {{ team}}
+            <mat-icon [ngStyle]="{'color': team.hexColor}">circle</mat-icon>
+            {{ team.name}}
           </mat-option>
         </mat-select>
         <mat-error> This field is required</mat-error>
       </mat-form-field>
-      <mat-form-field class="forms__50">
+      <mat-form-field class="forms__small">
         <mat-label>Enter a date range</mat-label>
-        <mat-date-range-input [rangePicker]="picker" required >
-          <input matStartDate placeholder="Start date" formControlName="startDate" required >
+        <mat-date-range-input [rangePicker]="picker" required>
+          <input matStartDate placeholder="Start date" formControlName="startDate" required>
           <input matEndDate placeholder="End date" formControlName="endDate" required>
         </mat-date-range-input>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
         <mat-error> This field is required</mat-error>
       </mat-form-field>
-      <div class="forms__100 forms__height">
-        <mat-form-field>
-          <mat-label>Build a team</mat-label>
-          <mat-chip-grid #chipGrid aria-label="Person selection" formControlName="members" required>
-            <mat-chip-row *ngFor="let user of chosenUsers" (removed)="remove(user)" [value]="user">
-              {{user.firstName}} {{user.lastName}}
-              <button matChipRemove [attr.aria-label]="'remove ' + user.lastName">
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip-row>
-          </mat-chip-grid>
-          <input placeholder="New Person..." #inputP [matChipInputFor]="chipGrid" [matAutocomplete]="auto" formControlName="filter"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)"  />
-          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let user of filteredUsers" [value]="user.id">
-              {{user.firstName}} {{user.lastName}}
-            </mat-option>
-          </mat-autocomplete>
-          <mat-error  > This field is required</mat-error>
-        </mat-form-field>
-      </div>
-      <div class="buttons forms__100">
+      <mat-form-field class="forms__large">
+        <mat-label>Build a team</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Person selection" formControlName="members" required>
+          <mat-chip-row *ngFor="let user of chosenUsers" (removed)="remove(user)" [value]="user">
+            {{user.firstName}} {{user.lastName}}
+            <button matChipRemove [attr.aria-label]="'remove ' + user.lastName">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        </mat-chip-grid>
+        <input placeholder="Add person..." #inputP [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+          formControlName="filter" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)" />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let user of filteredUsers" [value]="user.id">
+            {{user.firstName}} {{user.lastName}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-hint> Max 3 persons</mat-hint>
+        <mat-error> This field is required</mat-error>
+      </mat-form-field>
+      <div class="buttons forms__btn">
         <button mat-flat-button color="primary" type="submit">Submit</button>
-        <button mat-flat-button color="warn" type="button" (click)="clear()">Clear</button>
         <button mat-flat-button color="accent" type="button" (click)="clear()">Clear</button>
       </div>
     </form>
   </mat-card>
   <div class="ctn__items">
 
-    <mat-card *ngFor="let team of teams">
-  
-          <am-team-view-item [team]="team"></am-team-view-item>
-     
+    <mat-card>
+      <table class="table">
+        <thead>
+          <tr class="table__row-header">
+            <th *ngFor="let head of headers">
+              {{head }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams" class="table__row">
+            <td>{{ team.name.name}}
+              <mat-icon [ngStyle]="{'color': team.name.hexColor}">circle</mat-icon>
+            </td>
+            <td> {{ team.startDate | date: 'dd.MM.yyyy' }}</td>
+            <td> {{ team.endDate | date: 'dd.MM.yyyy' }}</td>
+            <td>
+              @for(mem of team.members; track mem){
+              <span>
+                {{ mem.firstName }} {{ mem.lastName }}
+              </span>
+              }
+            </td>
+            <td>
+              <div>
+                <button mat-icon-button aria-label="Edit team">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="Delete team">
+                  <mat-icon>delete</mat-icon>
+                </button>
+
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
     </mat-card>
   </div>
 

@@ -20,14 +20,14 @@ import { TablePaginationComponent } from './components/shared/table-pagination/t
 import { TableVirtualComponent } from './components/shared/table-virtual/table-virtual.component';
 import { DateActionComponent } from './components/date-hour-pickers/date-action/date-action.component';
 import { SelectAutocompleteComponent } from './components/select-autocomplete/select-autocomplete.component';
-import { TeamViewItemComponent } from './components/select-autocomplete/team-view-item/team-view-item.component';
 import { MatdatepickerTimeComponent } from './components/date-hour-pickers/matdatepicker-time/matdatepicker-time.component';
 import { InfiniteScrollComponent } from './components/shared/infinite-scroll/infinite-scroll.component';
 import { DirectiveModule } from './shared/directive/directive.module';
 import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour-picker-input.component';
 
 
-@NgModule({ declarations: [
+@NgModule({
+    declarations: [
         AppComponent,
         HomeComponent,
         DateHourPickersComponent,
@@ -43,7 +43,6 @@ import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour
         TableVirtualComponent,
         DateActionComponent,
         SelectAutocompleteComponent,
-        TeamViewItemComponent,
         MatdatepickerTimeComponent,
         InfiniteScrollComponent,
         HourPickerInput
@@ -55,6 +54,7 @@ import { HourPickerInput } from './components/date-hour-pickers/hour-picker/hour
         FormsModule,
         ReactiveFormsModule,
         DirectiveModule], providers: [
-        provideHttpClient(withInterceptorsFromDi())
-    ] })
+            provideHttpClient(withInterceptorsFromDi())
+        ]
+})
 export class AppModule { }

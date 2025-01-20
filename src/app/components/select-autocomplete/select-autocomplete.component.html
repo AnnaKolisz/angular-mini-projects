@@ -35,15 +35,22 @@
           formControlName="filter" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
           (matChipInputTokenEnd)="add($event)" />
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let user of filteredUsers" [value]="user.id">
+          @for(user of filteredUsers; track user){
+          <mat-option [value]="user.id">
             {{user.firstName}} {{user.lastName}}
           </mat-option>
+          }
         </mat-autocomplete>
         <mat-hint> Max 3 persons</mat-hint>
+        @if(teamForm.get('members').hasError('required')) {
         <mat-error> This field is required</mat-error>
+        }
+        @if(teamForm.get('members').hasError('ifMax')) {
+        <mat-error> This field have more than 3 persons</mat-error>
+        }
       </mat-form-field>
       <div class="buttons forms__btn">
-        <button mat-flat-button color="primary" type="submit">Submit</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="!teamForm.valid">Submit</button>
         <button mat-flat-button color="accent" type="button" (click)="clear()">Clear</button>
       </div>
     </form>
@@ -61,12 +68,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let team of teams" class="table__row">
-            <td>{{ team.name.name}}
+            <td class="name">
+
               <mat-icon [ngStyle]="{'color': team.name.hexColor}">circle</mat-icon>
+              <span> {{ team.name.name}} </span>
             </td>
             <td> {{ team.startDate | date: 'dd.MM.yyyy' }}</td>
             <td> {{ team.endDate | date: 'dd.MM.yyyy' }}</td>
-            <td>
+            <td class="members">
               @for(mem of team.members; track mem){
               <span>
                 {{ mem.firstName }} {{ mem.lastName }}
@@ -74,15 +83,15 @@
               }
             </td>
             <td>
-              <div>
-                <button mat-icon-button aria-label="Edit team">
-                  <mat-icon>edit</mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Delete team">
-                  <mat-icon>delete</mat-icon>
-                </button>
 
-              </div>
+              <button mat-icon-button aria-label="Edit team" color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button aria-label="Delete team" color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+
+
             </td>
           </tr>
         </tbody>

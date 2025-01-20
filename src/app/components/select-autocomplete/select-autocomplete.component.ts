@@ -5,9 +5,16 @@ import { DataService } from 'src/app/service/data.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
+
+export function maxMembersValidator(max: number): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const members = control.value;
+    return Array.isArray(members) && members.length > max ? { ifMax: true } : null;
+  };
+}
 @Component({
   selector: 'am-select-autocomplete',
   templateUrl: './select-autocomplete.component.html',
@@ -15,7 +22,7 @@ import { Subscription } from 'rxjs';
 })
 export class SelectAutocompleteComponent {
 
-  // Pomysł na autocomplete: Validacja aby było tylko trzy osoby, lista autocomplete jest disable
+  // Pomysł na autocomplete: Validacja aby było tylko trzy osoby, lista autocomplete jest disable, oraz walidacja czy osoba juz nie jest zajęta
   // Tabela z jakimś fajnym filtrem
   // można dodać gantt
 
@@ -31,10 +38,10 @@ export class SelectAutocompleteComponent {
     name: new FormControl(null, { validators: Validators.required }),
     startDate: new FormControl<Date | null>(null, { nonNullable: true, validators: Validators.required }),
     endDate: new FormControl<Date | null>(null, { nonNullable: true, validators: Validators.required }),
-    members: new FormControl<Person[]>([], { nonNullable: true, validators: Validators.required }),
+    members: new FormControl<Person[]>([], { nonNullable: true, validators: [Validators.required, maxMembersValidator(3)] }),
     filter: new FormControl<string>('')
   });
-  headers = ["Team Name", "Start date", "End date", "Team members", "Action"]
+  headers = ["Team Name", "Start date", "End date", "Members", "Action"]
 
   constructor(
     private dataService: DataService,
@@ -104,6 +111,7 @@ export class SelectAutocompleteComponent {
   }
 
   onSubmit() {
+    console.log(this.teamForm);
     if (this.teamForm.valid) {
       const valueForm = <Team>this.teamForm.getRawValue();
       this.teams.push(valueForm);
@@ -143,7 +151,8 @@ const MOCK_TEAM = [
 
     name: MOCK_TEAM_RED, startDate: new Date(2025, 0, 23), endDate: new Date(2025, 0, 26), members: [
       { id: 2, firstName: 'Carine', lastName: 'Stobbe' },
-      { id: 6, firstName: 'Reynolds', lastName: 'Chelnam' }
+      { id: 6, firstName: 'Reynolds', lastName: 'Chelnam' },
+      { id: 180, firstName: 'Teirtza', lastName: 'Bridgen' }
     ]
   }
 ];

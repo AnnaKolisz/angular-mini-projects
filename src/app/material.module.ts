@@ -21,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { OverlayModule } from "@angular/cdk/overlay";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 
 export const MY_FORMATS = {
@@ -57,6 +58,7 @@ const modules = [
   MatTabsModule,
   MatTableModule,
   MatToolbarModule,
+  MatTooltipModule,
   OverlayModule
 
 ]

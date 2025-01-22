@@ -22,8 +22,9 @@ export function maxMembersValidator(max: number): ValidatorFn {
 })
 export class SelectAutocompleteComponent {
 
-  // Pomysł na autocomplete: Validacja aby było tylko trzy osoby, lista autocomplete jest disable, oraz walidacja czy osoba juz nie jest zajęta
-  // Tabela z jakimś fajnym filtrem
+
+  // Pomysł na autocomplete: Validacja aby było tylko trzy osoby, lista autocomplete jest disable, oraz walidacja czy osoba juz nie jest zajęta(to bardzo na póżniej)
+  // i dodać animację aby ładnie sie przełączało między formularzami 
   // można dodać gantt
 
   sub$: Subscription;
@@ -41,7 +42,8 @@ export class SelectAutocompleteComponent {
     members: new FormControl<Person[]>([], { nonNullable: true, validators: [Validators.required, maxMembersValidator(3)] }),
     filter: new FormControl<string>('')
   });
-  headers = ["Team Name", "Start date", "End date", "Members", "Action"]
+  headers = ["Team Name", "Start date", "End date", "Members", "Action"];
+  editState = { ifEdit: false, editTeamId: null };
 
   constructor(
     private dataService: DataService,
@@ -111,11 +113,23 @@ export class SelectAutocompleteComponent {
   }
 
   onSubmit() {
-    console.log(this.teamForm);
     if (this.teamForm.valid) {
-      const valueForm = <Team>this.teamForm.getRawValue();
-      this.teams.push(valueForm);
-      this.clear();
+      if (this.editState.ifEdit) {
+        const team = this.teams.find(team => team.teamId === this.editState.editTeamId);
+        if (team) {
+          const valueForm = <Team>{ ...this.teamForm.getRawValue(), teamId: team.teamId };
+          this.teams[this.teams.indexOf(team)] = valueForm;
+          this.clear();
+          this.editState.ifEdit = false;
+          this.editState.editTeamId = null;
+        }
+      } else {
+        const teamId = this.teams.reduce((acc, team) => team.teamId > acc ? team.teamId : acc, 0) + 1;
+        const valueForm = <Team>{ ...this.teamForm.getRawValue(), teamId };
+        this.teams.push(valueForm);
+        this.clear();
+
+      }
     }
   }
 
@@ -124,6 +138,22 @@ export class SelectAutocompleteComponent {
     this.chosenUsers = [];
     this.teamForm.markAsPristine();
     this.teamForm.markAsUntouched();
+  }
+
+  deleteTeam(team: Team) {
+    this.teams = this.teams.filter(item => item.teamId !== team.teamId);
+  }
+
+  editTeam(team: Team) {
+    this.editState.ifEdit = true;
+    this.editState.editTeamId = team.teamId;
+    this.teamForm.patchValue({
+      name: team.name,
+      startDate: team.startDate,
+      endDate: team.endDate,
+      members: team.members
+    });
+    this.chosenUsers = team.members;
   }
 
 }
@@ -138,17 +168,19 @@ const MOCK_TEAM_RED = MOCK_TEAM_SELECT[2];
 
 const MOCK_TEAM = [
   {
+    teamId: 1,
     name: MOCK_TEAM_YELLOW, startDate: new Date(2025, 0, 3), endDate: new Date(2025, 0, 6), members: [
       { id: 2, firstName: 'Carine', lastName: 'Stobbe' },
       { id: 6, firstName: 'Reynolds', lastName: 'Chelnam' }]
   },
   {
+    teamId: 2,
     name: MOCK_TEAM_BLUE, startDate: new Date(2025, 0, 4), endDate: new Date(2025, 0, 13), members: [
       { id: 22, firstName: 'Barbey', lastName: 'Bonar' },
       { id: 26, firstName: 'Aggy', lastName: 'Laxson' }]
   },
   {
-
+    teamId: 3,
     name: MOCK_TEAM_RED, startDate: new Date(2025, 0, 23), endDate: new Date(2025, 0, 26), members: [
       { id: 2, firstName: 'Carine', lastName: 'Stobbe' },
       { id: 6, firstName: 'Reynolds', lastName: 'Chelnam' },

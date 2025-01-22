@@ -40,6 +40,7 @@ export interface KeyTitle {
 }
 
 export interface Team {
+    teamId: number;
     name: { name: string, hexColor: string }
     startDate: Date;
     endDate: Date;

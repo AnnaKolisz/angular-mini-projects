@@ -52,7 +52,8 @@
 
 .table {
     @include table();
-    padding: 0 .75rem;
+    padding: 1em 1.25em;
+    height: max-content;
 
     thead tr:first-child th {
 

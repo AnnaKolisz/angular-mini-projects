@@ -50,7 +50,9 @@
         }
       </mat-form-field>
       <div class="buttons forms__btn">
-        <button mat-flat-button color="primary" type="submit" [disabled]="!teamForm.valid">Submit</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="!teamForm.valid">
+          {{ editState.ifEdit ? 'Update Team' : 'Create Team' }}
+        </button>
         <button mat-flat-button color="accent" type="button" (click)="clear()">Clear</button>
       </div>
     </form>
@@ -84,10 +86,11 @@
             </td>
             <td>
 
-              <button mat-icon-button aria-label="Edit team" color="primary">
+              <button mat-icon-button aria-label="Edit team" color="primary" (click)="editTeam(team)">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button aria-label="Delete team" color="warn">
+              <button mat-icon-button aria-label="Delete team" color="warn" (click)="deleteTeam(team)"
+                matTooltip="This action cannot be undone. Proceed with caution.">
                 <mat-icon>delete</mat-icon>
               </button>
 

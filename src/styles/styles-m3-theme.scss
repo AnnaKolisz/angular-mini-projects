@@ -133,20 +133,32 @@ $_rest: (
 );
 $_primary: map.merge(map.get($_palettes, primary), $_rest);
 $_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
+$_secondary: map.merge(map.get($_palettes, secondary), $_rest);
+
+
 
 $light-theme: mat.define-theme((color: (theme-type: light,
         primary: $_primary,
+        //  secondary: $_secondary,
         tertiary: $_tertiary,
         use-system-variables: true,
       ),
-      typography: (use-system-variables: true,
-      ),
+      typography: (brand-family: "Raleway",
+        plain-family: "Raleway",
+        bold-weight: 700,
+        medium-weight: 500,
+        regular-weight: 400),
     ));
 $dark-theme: mat.define-theme((color: (theme-type: dark,
         primary: $_primary,
         tertiary: $_tertiary,
         use-system-variables: true,
       ),
-      typography: (use-system-variables: true,
-      ),
+      typography: (brand-family: "Raleway",
+        plain-family: "Raleway",
+        bold-weight: 700,
+        medium-weight: 500,
+        regular-weight: 400),
     ));
+
+//@include angular-material-theme($custom-theme);

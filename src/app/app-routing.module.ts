@@ -8,6 +8,7 @@ import { SignaturePadComponent } from './components/signature-pad/signature-pad.
 import { DataPortionComponent } from './components/data-portion/data-portion.component';
 import { SelectAutocompleteComponent } from './components/select-autocomplete/select-autocomplete.component';
 import { ReviewComponent } from './components/review/review.component';
+import { SortSpecialComponent } from './components/sort-special/sort-special.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,11 @@ const routes: Routes = [
     path: 'select_autocomplete',
     component: SelectAutocompleteComponent,
     title: 'Select with autocomplete'
+  },
+  {
+    path: 'sort',
+    component: SortSpecialComponent,
+    title: 'Sort'
   },
 ];
 

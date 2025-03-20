@@ -1,47 +1,50 @@
 [
-    {
-      "title": "Multi filtr",
-      "description": "This show filtr per column",
-      "link": "filter",
-      "icon": "filter_list"
-    },
-    {
-      "title": "Hour Date Picker",
-      "description": "My custom form field by custom accessor validator",
-      "link": "picker",
-      "icon": "date_range"
-    },
-    {
-      "title": "Review form",
-      "description": "Form to evaluate the hypothetical workshop ",
-      "link": "review",
-      "icon": "thumbs_up_down"
-    },
-    {
-      "title": "Resize view",
-      "description": "TODO ",
-      "link": "resize",
-      "icon": "expand"
-    },
-    {
-      "title": "Signature pad",
-      "description": "TODO ",
-      "link": "signature-pad",
-      "icon": "edit"
-    },
-    {
-      "title": "Data portion",
-      "description": "Pagination, infinite scroll, virtual scroll ",
-      "link": "data-portion",
-      "icon": "content_cut"
-    },
-    {
-      "title": "Select + autocomplete",
-      "description": "Form with filed with multiselect and autocomplete",
-      "link": "select_autocomplete",
-      "icon": "select_all"
-    }
-
-
-
+  {
+    "title": "Multi filtr",
+    "description": "This show filtr per column",
+    "link": "filter",
+    "icon": "filter_list"
+  },
+  {
+    "title": "Hour Date Picker",
+    "description": "My custom form field by custom accessor validator",
+    "link": "picker",
+    "icon": "date_range"
+  },
+  {
+    "title": "Review form",
+    "description": "Form to evaluate the hypothetical workshop ",
+    "link": "review",
+    "icon": "thumbs_up_down"
+  },
+  {
+    "title": "Resize view",
+    "description": "TODO ",
+    "link": "resize",
+    "icon": "expand"
+  },
+  {
+    "title": "Signature pad",
+    "description": "TODO ",
+    "link": "signature-pad",
+    "icon": "edit"
+  },
+  {
+    "title": "Data portion",
+    "description": "Pagination, infinite scroll, virtual scroll ",
+    "link": "data-portion",
+    "icon": "content_cut"
+  },
+  {
+    "title": "Select + autocomplete",
+    "description": "Form with filed with multiselect and autocomplete",
+    "link": "select_autocomplete",
+    "icon": "select_all"
+  },
+  {
+    "title": "Special sort",
+    "description": "Sort address when is string and number",
+    "link": "sort",
+    "icon": "sort"
+  }
 ]

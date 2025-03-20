@@ -1,7 +1,11 @@
-export interface Employee {
+export interface Person {
     id: number;
     firstName: string;
     lastName: string;
+    combinedName?: string;
+}
+
+export interface Employee extends Person {
     email: string;
     gender: string;
     department: string;
@@ -13,11 +17,10 @@ export interface Employee {
     country: string;
 }
 
-export interface Person {
-    id: number;
-    firstName: string;
-    lastName: string;
-    combinedName?: string;
+
+export interface EmployeeAddress extends Person {
+    location: string;
+    address: string;
 }
 
 export interface Project {
@@ -32,6 +35,7 @@ export interface ConfigTable {
     type?: string;
     link?: string;
     linkName?: string;
+    columnName?: string;
 }
 
 export interface KeyTitle {

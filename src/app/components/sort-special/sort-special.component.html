@@ -1,0 +1,77 @@
+<main class="ctn">
+    <h3> Sort by address </h3>
+    <div class="overflow">
+        <table mat-table [dataSource]="dataSource" class="table" matSort>
+
+            <ng-container matColumnDef="lp">
+                <th mat-header-cell *matHeaderCellDef> Lp. </th>
+                <td mat-cell *matCellDef="let element; let i = index">
+                    {{1+i+(paginator.pageIndex*paginator.pageSize)}}
+                </td>
+            </ng-container>
+
+            @for(item of configColumns; track item){
+
+            <ng-container matColumnDef="{{item.key}}">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{
+                    item.columnName}}
+                </th>
+                <td mat-cell *matCellDef="let row"> {{row[item.key]}} </td>
+
+                <!-- <ng-container [ngSwitch]="item.type">
+                        <ng-container *ngSwitchCase="'booleanYN'">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{
+                                item.value}}
+                            </th>
+                            <td mat-cell *matCellDef="let row"> {{row[item.key] ? 'Tak' : 'Nie'}} </td>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'tooltip'">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{
+                                item.value}}
+                            </th>
+                            <td mat-cell *matCellDef="let row" class="table__cell-description">
+                                <div class="table__description">{{ row[item.key] }}</div>
+                                <div class='table__tooltip'>
+                                    {{ row[item.key] }}
+                                </div>
+                            </td>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'large-cell'">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{
+                                item.value}}
+                            </th>
+                            <td mat-cell *matCellDef="let row" class="large-cell"> {{row[item.key]}} </td>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'date'">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{
+                                item.value}}
+                            </th>
+                            <td mat-cell *matCellDef="let row"> {{row[item.key] | date: 'dd.MM.yyyy'}} </td>
+                        </ng-container>
+
+                        <ng-container *ngSwitchCase="'date-hour'">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{
+                                item.value}}
+                            </th>
+                            <td mat-cell *matCellDef="let row"> {{row[item.key] | date: 'dd.MM.yyyy' }} </td>
+                        </ng-container>
+                        <ng-container *ngSwitchDefault>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{
+                                item.value}}
+                            </th>
+                            <td mat-cell *matCellDef="let row"> {{row[item.key]}} </td>
+                        </ng-container> 
+                </ng-container>-->
+            </ng-container>
+            }
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="table__row-header"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns" class="table__row"></tr>
+        </table>
+
+    </div>
+    <mat-paginator showFirstLastButtons>
+    </mat-paginator>
+
+
+</main>

@@ -6,9 +6,10 @@ import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
-  selector: 'am-table-pagination',
-  templateUrl: './table-pagination.component.html',
-  styleUrls: ['./table-pagination.component.scss']
+    selector: 'am-table-pagination',
+    templateUrl: './table-pagination.component.html',
+    styleUrls: ['./table-pagination.component.scss'],
+    standalone: false
 })
 export class TablePaginationComponent<T> implements AfterViewInit {
 

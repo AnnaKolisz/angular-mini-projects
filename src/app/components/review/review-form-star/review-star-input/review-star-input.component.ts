@@ -7,17 +7,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable, Subject } from 'rxjs';
 
 @Component({
-  selector: 'am-review-star-input',
-  standalone: true,
-  imports: [CommonModule, MatIconModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './review-star-input.component.html',
-  styleUrl: './review-star-input.component.scss',
-  providers: [{ provide: MatFormFieldControl, useExisting: ReviewStarInputComponent }],
-  host: {
-    '[class.floating]': 'shouldLabelFloat',
-    '[id]': 'id',
-  },
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'am-review-star-input',
+    imports: [CommonModule, MatIconModule, FormsModule, ReactiveFormsModule],
+    templateUrl: './review-star-input.component.html',
+    styleUrl: './review-star-input.component.scss',
+    providers: [{ provide: MatFormFieldControl, useExisting: ReviewStarInputComponent }],
+    host: {
+        '[class.floating]': 'shouldLabelFloat',
+        '[id]': 'id',
+    },
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReviewStarInputComponent implements ControlValueAccessor, MatFormFieldControl<number>, OnInit, OnDestroy {
 

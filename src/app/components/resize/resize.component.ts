@@ -5,9 +5,10 @@ import { DataService } from 'src/app/service/data.service';
 import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
 
 @Component({
-  selector: 'am-resize',
-  templateUrl: './resize.component.html',
-  styleUrls: ['./resize.component.scss']
+    selector: 'am-resize',
+    templateUrl: './resize.component.html',
+    styleUrls: ['./resize.component.scss'],
+    standalone: false
 })
 export class ResizeComponent implements OnInit, AfterViewInit {
 

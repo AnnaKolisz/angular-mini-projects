@@ -8,11 +8,10 @@ import { ConfigTable, EmployeeAddress } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
-  selector: 'am-sort-special',
-  standalone: true,
-  imports: [MatPaginatorModule, MatTableModule, MatSortModule],
-  templateUrl: './sort-special.component.html',
-  styleUrl: './sort-special.component.scss'
+    selector: 'am-sort-special',
+    imports: [MatPaginatorModule, MatTableModule, MatSortModule],
+    templateUrl: './sort-special.component.html',
+    styleUrl: './sort-special.component.scss'
 })
 export class SortSpecialComponent {
 

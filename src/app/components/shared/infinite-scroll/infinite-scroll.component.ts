@@ -1,9 +1,10 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'am-infinite-scroll',
-  templateUrl: './infinite-scroll.component.html',
-  styleUrls: ['./infinite-scroll.component.scss']
+    selector: 'am-infinite-scroll',
+    templateUrl: './infinite-scroll.component.html',
+    styleUrls: ['./infinite-scroll.component.scss'],
+    standalone: false
 })
 export class InfiniteScrollComponent {
   @Input() options = {};

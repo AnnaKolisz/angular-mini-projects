@@ -1,9 +1,10 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'am-signature-pad',
-  templateUrl: './signature-pad.component.html',
-  styleUrls: ['./signature-pad.component.scss']
+    selector: 'am-signature-pad',
+    templateUrl: './signature-pad.component.html',
+    styleUrls: ['./signature-pad.component.scss'],
+    standalone: false
 })
 export class SignaturePadComponent {
 

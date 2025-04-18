@@ -4,8 +4,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { HourMinuteSec } from './hour-picker-input.component';
 
 @Component({
-  selector: 'am-hour-picker',
-  template: `
+    selector: 'am-hour-picker',
+    template: `
     <div [formGroup]="form">
       <mat-form-field placeholder="'Jakie cudo'">
         <!--  <mat-label>wpisz czas</mat-label> -->
@@ -14,8 +14,8 @@ import { HourMinuteSec } from './hour-picker-input.component';
     </div>
     <pre> {{ timy | json }}</pre>
 `,
-  styles: [],
-
+    styles: [],
+    standalone: false
 })
 export class HourPickerComponent implements OnInit {
 

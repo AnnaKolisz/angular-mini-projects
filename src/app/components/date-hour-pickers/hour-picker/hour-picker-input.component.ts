@@ -10,14 +10,15 @@ export class HourMinuteSec {
 }
 
 @Component({
-  selector: 'am-hour-picker-input',
-  templateUrl: './hour-picker-input.component.html',
-  styleUrls: ['./hour-picker-input.component.scss'],
-  providers: [{ provide: MatFormFieldControl, useExisting: HourPickerInput }],
-  host: {
-    '[class.example-floating]': 'shouldLabelFloat',
-    '[id]': 'id',
-  },
+    selector: 'am-hour-picker-input',
+    templateUrl: './hour-picker-input.component.html',
+    styleUrls: ['./hour-picker-input.component.scss'],
+    providers: [{ provide: MatFormFieldControl, useExisting: HourPickerInput }],
+    host: {
+        '[class.example-floating]': 'shouldLabelFloat',
+        '[id]': 'id',
+    },
+    standalone: false
 })
 export class HourPickerInput implements OnDestroy, MatFormFieldControl<HourMinuteSec>, ControlValueAccessor {
 

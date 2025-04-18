@@ -7,11 +7,10 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'am-review-form-star',
-  standalone: true,
-  imports: [ReviewStarInputComponent, MatFormFieldModule, ReactiveFormsModule],
-  templateUrl: './review-form-star.component.html',
-  styleUrl: './review-form-star.component.scss'
+    selector: 'am-review-form-star',
+    imports: [ReviewStarInputComponent, MatFormFieldModule, ReactiveFormsModule],
+    templateUrl: './review-form-star.component.html',
+    styleUrl: './review-form-star.component.scss'
 })
 export class ReviewFormStarComponent implements OnInit, OnDestroy, ControlValueAccessor {
 

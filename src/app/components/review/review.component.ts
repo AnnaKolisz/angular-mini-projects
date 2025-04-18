@@ -7,11 +7,10 @@ import { MatCardModule } from '@angular/material/card';
 import { ReviewFormComponent } from './review-form/review-form.component';
 
 @Component({
-  selector: 'am-review',
-  standalone: true,
-  imports: [ReviewListComponent, ReviewStatsComponent, MatCardModule, ReviewFormComponent],
-  templateUrl: './review.component.html',
-  styleUrl: './review.component.scss'
+    selector: 'am-review',
+    imports: [ReviewListComponent, ReviewStatsComponent, MatCardModule, ReviewFormComponent],
+    templateUrl: './review.component.html',
+    styleUrl: './review.component.scss'
 })
 export class ReviewComponent {
 

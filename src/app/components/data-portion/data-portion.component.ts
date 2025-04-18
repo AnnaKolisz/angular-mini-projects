@@ -4,9 +4,10 @@ import { DataService } from 'src/app/service/data.service';
 import { COLUMNS, CONFIG_COLUMNS } from 'src/app/service/utility';
 
 @Component({
-  selector: 'am-data-portion',
-  templateUrl: './data-portion.component.html',
-  styleUrls: ['./data-portion.component.scss']
+    selector: 'am-data-portion',
+    templateUrl: './data-portion.component.html',
+    styleUrls: ['./data-portion.component.scss'],
+    standalone: false
 })
 export class DataPortionComponent {
   

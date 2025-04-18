@@ -2,18 +2,17 @@ import { Component, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'am-review-form-ratings',
-  templateUrl: './review-form-ratings.component.html',
-  styleUrls: ['./review-form-ratings.component.scss'],
-  standalone: true,
-  imports: [FormsModule],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ReviewFormRatingsComponent),
-      multi: true
-    }
-  ]
+    selector: 'am-review-form-ratings',
+    templateUrl: './review-form-ratings.component.html',
+    styleUrls: ['./review-form-ratings.component.scss'],
+    imports: [FormsModule],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => ReviewFormRatingsComponent),
+            multi: true
+        }
+    ]
 })
 export class ReviewFormRatingsComponent implements OnInit, ControlValueAccessor {
 

@@ -6,11 +6,10 @@ import { ReviewFormRatingsComponent } from '../review-form-ratings/review-form-r
 import { ReviewFormStarComponent } from '../review-form-star/review-form-star.component';
 
 @Component({
-  selector: 'am-review-form',
-  templateUrl: './review-form.component.html',
-  styleUrls: ['./review-form.component.scss'],
-  standalone: true,
-  imports: [ReactiveFormsModule, MaterialModule, ReviewFormStarComponent]
+    selector: 'am-review-form',
+    templateUrl: './review-form.component.html',
+    styleUrls: ['./review-form.component.scss'],
+    imports: [ReactiveFormsModule, MaterialModule, ReviewFormStarComponent]
 })
 export class ReviewFormComponent {
 

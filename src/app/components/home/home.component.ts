@@ -4,9 +4,10 @@ import { Project } from 'src/app/model/data';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
-  selector: 'am-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'am-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    standalone: false
 })
 export class HomeComponent implements OnInit {
 

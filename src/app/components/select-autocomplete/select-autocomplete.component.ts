@@ -16,9 +16,10 @@ export function maxMembersValidator(max: number): ValidatorFn {
   };
 }
 @Component({
-  selector: 'am-select-autocomplete',
-  templateUrl: './select-autocomplete.component.html',
-  styleUrls: ['./select-autocomplete.component.scss']
+    selector: 'am-select-autocomplete',
+    templateUrl: './select-autocomplete.component.html',
+    styleUrls: ['./select-autocomplete.component.scss'],
+    standalone: false
 })
 export class SelectAutocompleteComponent {
 

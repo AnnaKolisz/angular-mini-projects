@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'am-date-action',
-  templateUrl: './date-action.component.html',
-  styleUrls: ['./date-action.component.scss']
+    selector: 'am-date-action',
+    templateUrl: './date-action.component.html',
+    styleUrls: ['./date-action.component.scss'],
+    standalone: false
 })
 export class DateActionComponent {
   

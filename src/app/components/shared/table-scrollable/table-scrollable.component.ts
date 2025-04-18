@@ -3,10 +3,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'am-table-scrollable',
-  templateUrl: './table-scrollable.component.html',
-  styleUrls: ['./table-scrollable.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'am-table-scrollable',
+    templateUrl: './table-scrollable.component.html',
+    styleUrls: ['./table-scrollable.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TableScrollableComponent<T> {
 

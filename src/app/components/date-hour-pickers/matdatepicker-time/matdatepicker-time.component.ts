@@ -18,12 +18,13 @@ export const MY_FORMATy= {
 };
 
 @Component({
-  selector: 'am-matdatepicker-time',
-  templateUrl: './matdatepicker-time.component.html',
-  styleUrls: ['./matdatepicker-time.component.scss'],
-  providers: [
-   provideMomentDateAdapter(MY_FORMATy),
-  ],
+    selector: 'am-matdatepicker-time',
+    templateUrl: './matdatepicker-time.component.html',
+    styleUrls: ['./matdatepicker-time.component.scss'],
+    providers: [
+        provideMomentDateAdapter(MY_FORMATy),
+    ],
+    standalone: false
 })
 export class MatdatepickerTimeComponent implements OnDestroy, OnInit  {
 

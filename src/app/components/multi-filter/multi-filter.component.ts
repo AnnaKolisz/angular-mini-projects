@@ -8,9 +8,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
-  selector: 'am-multi-filter',
-  templateUrl: './multi-filter.component.html',
-  styleUrls: ['./multi-filter.component.scss']
+    selector: 'am-multi-filter',
+    templateUrl: './multi-filter.component.html',
+    styleUrls: ['./multi-filter.component.scss'],
+    standalone: false
 })
 export class MultiFilterComponent implements OnInit {
 

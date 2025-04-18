@@ -5,9 +5,10 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
 import { TableDataSource } from './table-data-source';
 
 @Component({
-  selector: 'am-table-virtual',
-  templateUrl: './table-virtual.component.html',
-  styleUrls: ['./table-virtual.component.scss']
+    selector: 'am-table-virtual',
+    templateUrl: './table-virtual.component.html',
+    styleUrls: ['./table-virtual.component.scss'],
+    standalone: false
 })
 export class TableVirtualComponent<T> {
 

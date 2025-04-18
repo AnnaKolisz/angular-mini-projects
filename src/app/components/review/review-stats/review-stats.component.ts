@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 
 
 @Component({
-  selector: 'am-review-stats',
-  templateUrl: './review-stats.component.html',
-  styleUrls: ['./review-stats.component.scss'],
-  standalone: true,
-  imports: [CommonModule]
+    selector: 'am-review-stats',
+    templateUrl: './review-stats.component.html',
+    styleUrls: ['./review-stats.component.scss'],
+    imports: [CommonModule]
 })
 export class ReviewStatsComponent {
 

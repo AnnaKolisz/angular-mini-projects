@@ -3,14 +3,16 @@
 @use '@angular/material' as mat;
 @use './styles-m3-theme.scss';
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 
 $theme: mat.define-theme();
 
 html {
   // Apply the light theme by default
-  @include mat.core-theme(styles-m3-theme.$light-theme);
+  @include mat.elevation-classes();
+  @include mat.app-background();
   @include mat.button-theme(styles-m3-theme.$light-theme);
   @include mat.system-level-colors(styles-m3-theme.$light-theme);
   @include mat.system-level-typography(styles-m3-theme.$light-theme);
